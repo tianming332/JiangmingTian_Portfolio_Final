@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Video Works | Portfolio</title>
+    <meta name="description" content="Personal portfolio website">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="vendor/glightbox/css/glightbox.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&amp;display=swap">
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="sidebar-inner d-flex flex-column">
+        <div class="px-4 py-5"><a href="index.html"><img src="img/favicon.png" alt="Logo" width="90"></a></div>
+        <div class="sidebar-menu-holder flex-grow-1">
+          <ul class="sidebar-menu list-unstyled">
+            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="index.html">Home</a></li>
+            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="collections.html">Portfolio</a></li>
+            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active" href="video.html">Video Works</a></li>
+            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="text.html">About</a></li>
+          </ul>
+        </div>
+        <div class="px-4 py-3">
+          <ul class="list-inline list-social mb-3">
+            <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-linkedin"></i></a></li>
+            <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fas fa-envelope"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="page-holder">
+      <div class="px-4 d-block d-lg-none">
+        <header class="header">
+          <nav class="navbar navbar-expand-lg navbar-light px-0">
+            <button class="navbar-toggler navbar-toggler-end text-sm text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <svg class="svg-icon svg-icon-heavy svg-icon-sm text-dark"><use xlink:href="#menu-hamburger-1"></use></svg>
+            </button><a class="navbar-brand" href="index.html"><img src="img/favicon.png" alt="Logo" width="50"></a>
+          </nav>
+        </header>
+      </div>
+      <div class="px-4 py-5">
+        <div class="container-fluid">
+          <div class="mb-5">
+            <p class="section-kicker mb-2">Video Works</p>
+            <h1 class="h2 mb-3">Video Works</h1>
+            <p class="text-muted mb-0">这里展示视频作品卡片。点击后跳转到外部视频链接。</p>
+          </div>
+          <div class="row gy-4 gx-5 masonry-wrapper" id="videosGrid"></div>
+        </div>
+      </div>
+      <footer class="text-muted" style="background: #0d0d0d">
+        <div class="container-fluid py-4">
+          <div class="row"><div class="col-lg-10 mx-auto">
+            <p class="text-sm mb-0"><span class="text-muted">&copy; Jiangming Tian Portfolio. All rights reserved.</span></p>
+          </div></div>
+        </div>
+      </footer>
+    </div>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/masonry-layout/masonry.pkgd.min.js"></script>
+    <script src="vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="data/videos.js"></script>
+    <script src="js/site-render.js"></script>
+    <script src="js/front.js"></script>
+    <script>
+      function injectSvgSprite(path) {
+        var ajax = new XMLHttpRequest();
+        ajax.open("GET", path, true);
+        ajax.send();
+        ajax.onload = function() {
+          var div = document.createElement("div");
+          div.className = "d-none";
+          div.innerHTML = ajax.responseText;
+          document.body.insertBefore(div, document.body.childNodes[0]);
+        };
+      }
+      injectSvgSprite("icons/orion-svg-sprite.svg");
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  </body>
+</html>

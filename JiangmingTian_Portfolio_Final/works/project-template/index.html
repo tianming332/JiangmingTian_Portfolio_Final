@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Single Work Detail | Portfolio</title>
+    <meta name="description" content="Single work detail page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="../../vendor/glightbox/css/glightbox.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&amp;display=swap">
+    <link rel="stylesheet" href="../../css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="../../css/custom.css">
+    <link rel="shortcut icon" href="../../img/favicon.png">
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="sidebar-inner d-flex flex-column">
+        <div class="px-4 py-5"><a href="../../index.html"><img src="../../img/favicon.png" alt="Logo" width="90"></a></div>
+        <div class="sidebar-menu-holder flex-grow-1">
+          <ul class="sidebar-menu list-unstyled">
+            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="../../index.html">Home</a></li>
+            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="../../collections.html">Portfolio</a></li>
+            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="../../video.html">Video Works</a></li>
+            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="../../text.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="page-holder">
+      <div class="px-4 d-block d-lg-none">
+        <header class="header"><nav class="navbar navbar-expand-lg navbar-light px-0"><button class="navbar-toggler navbar-toggler-end text-sm text-uppercase" type="button"><svg class="svg-icon svg-icon-heavy svg-icon-sm text-dark"><use xlink:href="#menu-hamburger-1"></use></svg></button><a class="navbar-brand" href="../../index.html"><img src="../../img/favicon.png" alt="Logo" width="50"></a></nav></header>
+      </div>
+      <div class="px-4 py-5">
+        <div class="container-fluid">
+          <div class="row gy-5 gx-5">
+            <div class="col-lg-8">
+              <p class="section-kicker mb-2">Single Work Detail</p>
+              <h1 class="h2 mb-4">Project Title</h1>
+              <img class="img-fluid rounded-lg mb-4" src="../../uploads/works-covers/A (1).jpg" alt="项目主图">
+              <p class="lead text-muted">这里是单个作品的完整介绍页面。你可以自由放项目背景、设计过程、最终效果、视频链接和更多图片。</p>
+              <h2 class="h4 mt-5">Project Overview</h2>
+              <p class="text-muted">替换这段文字为你的作品说明。这个页面是独立 Detail 页面，不需要把完整内容写进 Home。</p>
+              <h2 class="h4 mt-5">Process</h2>
+              <p class="text-muted">你可以继续添加图片、流程图、草图、调研内容和最终展示图。</p>
+            </div>
+            <div class="col-lg-4">
+              <div class="p-4 bg-light mb-4">
+                <p class="section-kicker mb-2">Info</p>
+                <p class="text-sm mb-2"><strong>Year:</strong> 2025</p>
+                <p class="text-sm mb-2"><strong>Category:</strong> Visual / Interaction</p>
+                <p class="text-sm mb-0"><strong>Tools:</strong> Figma / Photoshop / AI</p>
+              </div>
+              <a class="btn btn-primary rounded-pill" href="../../index.html">Back to Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="text-muted" style="background: #0d0d0d"><div class="container-fluid py-4"><p class="text-sm mb-0"><span class="text-muted">&copy; Jiangming Tian Portfolio. All rights reserved.</span></p></div></footer>
+    </div>
+    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../../js/front.js"></script>
+    <script>
+      function injectSvgSprite(path) { var ajax = new XMLHttpRequest(); ajax.open("GET", path, true); ajax.send(); ajax.onload = function() { var div = document.createElement("div"); div.className = "d-none"; div.innerHTML = ajax.responseText; document.body.insertBefore(div, document.body.childNodes[0]); }; }
+      injectSvgSprite("../../icons/orion-svg-sprite.svg");
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  </body>
+</html>

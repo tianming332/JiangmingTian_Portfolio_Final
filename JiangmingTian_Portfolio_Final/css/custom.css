@@ -1,0 +1,24 @@
+/* Custom styles for data-driven portfolio cards */
+.card-cover-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f2f2f2;
+}
+
+.section-kicker {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: #999;
+}
+
+.admin-panel textarea {
+  min-height: 230px;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 13px;
+}
+
+.admin-panel .form-control {
+  border-radius: 0;
+}
