@@ -54,3 +54,4 @@ function renderListingCards(targetId, items, emptyText) {
 renderListingCards("worksGrid", window.WORKS, "No work cards yet. Add your first work in data/works.js.");
 renderListingCards("collectionsGrid", window.COLLECTIONS, "No portfolio collections yet. Add them in data/collections.js.");
 renderListingCards("videosGrid", window.VIDEOS, "No video cards yet. Add them in data/videos.js.");
+renderListingCards("appliedBrandGrid", window.APPLIEDBRAND, "No Commercial Projects cards yet. Add them in data/applied-brand.js.");
