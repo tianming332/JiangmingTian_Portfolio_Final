@@ -1,118 +1,37 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Local Admin | Portfolio</title>
-    <meta name="description" content="Personal portfolio website">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="all,follow">
-    <link rel="stylesheet" href="vendor/glightbox/css/glightbox.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&amp;display=swap">
-    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="shortcut icon" href="img/favicon.png">
-  </head>
-  <body>
-    <div class="sidebar">
-      <div class="sidebar-inner d-flex flex-column">
-        <div class="px-4 py-5"><a href="index.html"><img src="img/favicon.png" alt="Logo" width="90"></a></div>
-        <div class="sidebar-menu-holder flex-grow-1">
-          <ul class="sidebar-menu list-unstyled">
-            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active" href="index.html">Home</a></li>
-            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="CommercialProjects.html">COMMERCIAL PROJECTS</a></li>
-            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="collections.html">Portfolio</a></li>
-            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="video.html">Video Works</a></li>
-            <li class="mb-2 pb-1"><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="text.html">About</a></li>
-          </ul>
-        </div>
-        <div class="px-4 py-3">
-          <ul class="list-inline list-social mb-3">
-            <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-linkedin"></i></a></li>
-            <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fas fa-envelope"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="page-holder">
-      <div class="px-4 d-block d-lg-none">
-        <header class="header">
-          <nav class="navbar navbar-expand-lg navbar-light px-0">
-            <button class="navbar-toggler navbar-toggler-end text-sm text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <svg class="svg-icon svg-icon-heavy svg-icon-sm text-dark"><use xlink:href="#menu-hamburger-1"></use></svg>
-            </button><a class="navbar-brand" href="index.html"><img src="favicon.png" alt="Logo" width="50"></a>
-          </nav>
-        </header>
-      </div>
-      <div class="px-4 py-5 admin-panel">
-        <div class="container-fluid">
-          <div class="mb-5">
-            <p class="section-kicker mb-2">Local Admin</p>
-            <h1 class="h2 mb-3">Card Data Generator</h1>
-            <p class="text-muted mb-0">这个页面只在本地帮你生成数据，不会自动写入 GitHub。生成后复制结果，替换对应 data 文件即可。</p>
-          </div>
-          <div class="row gy-5">
-            <div class="col-lg-6">
-              <h2 class="h4 mb-3">单个作品卡片</h2>
-              <div class="mb-3"><label class="form-label">标题</label><input id="workTitle" class="form-control" value="New Work"></div>
-              <div class="mb-3"><label class="form-label">关键词，用逗号分隔</label><input id="workKeywords" class="form-control" value="Visual, Interaction, 2025"></div>
-              <div class="mb-3"><label class="form-label">简介</label><input id="workDescription" class="form-control" value="Short introduction for this work."></div>
-              <div class="mb-3"><label class="form-label">封面路径</label><input id="workCover" class="form-control" value="uploads/works-covers/your-cover.jpg"></div>
-              <div class="mb-3"><label class="form-label">Detail 页面链接</label><input id="workLink" class="form-control" value="works/your-project/index.html"></div>
-              <button class="btn btn-primary rounded-pill" onclick="generateWork()">Generate works.js item</button>
-              <textarea id="workOutput" class="form-control mt-3" readonly></textarea>
-            </div>
-            <div class="col-lg-6">
-              <h2 class="h4 mb-3">年度作品集卡片</h2>
-              <div class="mb-3"><label class="form-label">标题</label><input id="collectionTitle" class="form-control" value="2025 Portfolio"></div>
-              <div class="mb-3"><label class="form-label">年份</label><input id="collectionYear" class="form-control" value="2025"></div>
-              <div class="mb-3"><label class="form-label">简介</label><input id="collectionDescription" class="form-control" value="Annual portfolio collection."></div>
-              <div class="mb-3"><label class="form-label">封面路径</label><input id="collectionCover" class="form-control" value="uploads/collection-covers/portfolio-2025-cover.jpg"></div>
-              <div class="mb-3"><label class="form-label">外部链接</label><input id="collectionLink" class="form-control" value="https://yourname.github.io/portfolio-2025/"></div>
-              <button class="btn btn-primary rounded-pill" onclick="generateCollection()">Generate collections.js item</button>
-              <textarea id="collectionOutput" class="form-control mt-3" readonly></textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="text-muted" style="background: #0d0d0d">
-        <div class="container-fluid py-4">
-          <div class="row"><div class="col-lg-10 mx-auto">
-            <p class="text-sm mb-0"><span class="text-muted">&copy; Jiangming Tian Portfolio. All rights reserved.</span></p>
-          </div></div>
-        </div>
-      </footer>
-    </div>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/masonry-layout/masonry.pkgd.min.js"></script>
-    <script src="vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="vendor/glightbox/js/glightbox.min.js"></script>
-    <script>
-      function q(id) { return document.getElementById(id).value.trim(); }
-      function generateWork() {
-        const item = { title: q("workTitle"), keywords: q("workKeywords").split(/[，,]/).map(v => v.trim()).filter(Boolean), description: q("workDescription"), cover: q("workCover"), link: q("workLink") };
-        document.getElementById("workOutput").value = JSON.stringify(item, null, 2) + ",";
-      }
-      function generateCollection() {
-        const item = { title: q("collectionTitle"), year: q("collectionYear"), description: q("collectionDescription"), cover: q("collectionCover"), link: q("collectionLink") };
-        document.getElementById("collectionOutput").value = JSON.stringify(item, null, 2) + ",";
-      }
-    </script>
-    <script src="js/front.js"></script>
-    <script>
-      function injectSvgSprite(path) {
-        var ajax = new XMLHttpRequest();
-        ajax.open("GET", path, true);
-        ajax.send();
-        ajax.onload = function() {
-          var div = document.createElement("div");
-          div.className = "d-none";
-          div.innerHTML = ajax.responseText;
-          document.body.insertBefore(div, document.body.childNodes[0]);
-        };
-      }
-      injectSvgSprite("icons/orion-svg-sprite.svg");
-    </script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  </body>
-</html>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>本地作品管理 | 天将明作品集</title><link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="css/style.default.css"><link rel="stylesheet" href="css/custom.css"><link rel="shortcut icon" href="img/favicon.png"></head>
+<body><main class="admin-shell">
+  <p class="eyebrow">本地作品管理 / LOCAL PUBLISHER</p><h1>新增或替换作品卡片</h1>
+  <p class="hero-intro">选择主站文件夹后，可填写卡片资料、替换封面，并同时更新作品资料与详情页接口。封面会统一转换为 WebP，并使用项目 ID 作为稳定文件名。</p>
+  <div class="notice" id="supportNotice">建议使用最新版 Chrome 或 Edge。第一次保存时，浏览器会要求你选择并授权网站根目录。</div>
+  <div class="admin-grid mt-4">
+    <section class="admin-card">
+      <h2>01. 项目资料</h2>
+      <div class="field"><label for="replaceId">替换现有项目（可选）</label><select id="replaceId"><option value="">新增项目</option></select></div>
+      <div class="field"><label for="title">中文标题</label><input id="title" placeholder="例如：AI 图像工作流工具"></div>
+      <div class="field"><label for="titleEn">英文辅助标题</label><input id="titleEn" placeholder="AI IMAGE WORKFLOW TOOL"></div>
+      <div class="field"><label for="slug">项目 ID（英文和短横线）</label><input id="slug" placeholder="ai-image-workflow"></div>
+      <div class="field"><label for="year">年份</label><input id="year" value="2026"></div>
+      <div class="field"><label for="description">一句话介绍</label><textarea id="description" placeholder="这个项目解决了什么问题？"></textarea></div>
+      <div class="field"><label for="overview">完整概述（可选）</label><textarea id="overview" placeholder="项目背景、设计方法与成果概述"></textarea></div>
+      <div class="field"><label for="tools">工具 / 技术</label><input id="tools" placeholder="Illustrator / Photoshop / Web"></div>
+      <div class="field"><label for="detailLive">详情页线上地址（发布后填写）</label><input id="detailLive" type="url" placeholder="https://tianming332.github.io/项目仓库/"></div>
+      <div class="field"><label for="direction">创作方向（可多选）</label><select id="direction" multiple size="3"><option value="ai">AI 创作</option><option value="visual">视觉设计</option><option value="interaction">交互设计</option></select></div>
+      <div class="field"><label for="type">作品类型（可多选）</label><select id="type" multiple size="7"><option value="graphic">平面设计</option><option value="uiux">UI / UX</option><option value="installation">装置设计</option><option value="information">信息可视化</option><option value="ip">IP 形象</option><option value="ai-image">AI 图像</option><option value="ai-video">AI 视频</option><option value="web-tool">Web 工具</option><option value="program">程序</option><option value="report">研究报告</option></select></div>
+      <div class="field"><label for="tags">辅助标签（中文逗号分隔）</label><input id="tags" placeholder="生成式 AI，用户研究，视觉实验"></div>
+      <div class="field"><label for="status">项目状态</label><select id="status"><option value="concept">概念项目</option><option value="prototype">原型项目</option><option value="launched">已落地</option><option value="implemented">已实施</option><option value="exhibited">已展出</option></select></div>
+    </section>
+    <section class="admin-card">
+      <h2>02. 主站封面与预览</h2>
+      <div class="drop-zone" id="dropZone"><strong>将一张主站卡片封面拖到这里</strong><br><small>详情素材请放入独立详情页的 assets 文件夹</small><input id="files" type="file" accept="image/*" hidden></div>
+      <div class="file-list mt-3" id="fileList">尚未选择文件</div>
+      <div class="field"><label for="coverSelect">选择封面</label><select id="coverSelect"><option value="">使用占位封面</option></select></div>
+      <div class="notice"><strong>封面固定路径：</strong><span id="coverPath">uploads/works-covers/项目-id.webp</span></div>
+      <img class="preview-cover" id="coverPreview" src="uploads/works-covers/placeholder-applied-01.svg" alt="封面预览">
+      <h2 class="mt-4">03. 保存</h2>
+      <p class="text-muted small">“保存到网站”会更新 <code>data/works.js</code>、<code>data/work-detail-links.js</code> 与固定封面。详情素材仍只放在对应详情页。</p>
+      <div class="admin-actions"><button class="admin-button" id="saveSite">选择目录并保存到网站</button><button class="admin-button secondary" id="downloadData">下载 works.js</button><button class="admin-button secondary" id="downloadLinks">下载详情接口</button><button class="admin-button secondary" id="resetForm">清空表单</button></div>
+      <div class="notice mt-3" id="adminMessage">等待填写项目资料。</div>
+    </section>
+  </div>
+  <p class="mt-4"><a href="index.html#all-works">← 返回网站首页</a></p>
+</main><script src="data/works.js"></script><script src="data/work-detail-links.js"></script><script src="js/local-admin.js"></script></body></html>
