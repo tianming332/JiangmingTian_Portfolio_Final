@@ -7,7 +7,8 @@ window.COLLECTIONS = [
     description: "正在筹备中。",
     i18n: { "zh-hans": { title: "2025 Portfolio", description: "正在筹备中。" }, "zh-hant": { title: "2025 Portfolio", description: "正在籌備中。" }, en: { title: "2025 Portfolio", description: "In preparation." } },
     cover: "uploads/collection-covers/sample-collection-2025.png",
-    link: "https://example.com/portfolio-2025/"
+    // 2025 尚未发布：保留卡片，但不跳转到占位网址。
+    link: "#!"
   },
   {
     title: "2024 Portfolio",

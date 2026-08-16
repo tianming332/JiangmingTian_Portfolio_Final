@@ -9,7 +9,7 @@
 
   var english = {
     "天将明": "Tian Jiangming", "所有作品": "All Works", "實際項目": "Applied Projects", "实际项目": "Applied Projects",
-    "年度作品集": "Annual Portfolios", "畫廊": "Gallery", "Tian_vidos": "Tian_vidos", "AI 視頻": "AI Videos", "AI 视频": "AI Videos", "關於我": "About",
+    "年度作品集": "Annual Portfolios", "畫廊": "Gallery", "画廊": "Gallery", "Tian_vidos": "Tian_vidos", "AI 視頻": "AI Videos", "AI 视频": "AI Videos", "AI視頻": "AI Videos", "AI视频": "AI Videos", "關於我": "About",
     "作品": "Works", "集合": "Collections", "信息": "Info", "創作方向": "Creative Direction", "创作方向": "Creative Direction",
     "作品類型": "Work Type", "作品类型": "Work Type", "全部": "All", "AI 創作": "AI Creation", "AI 创作": "AI Creation",
     "視覺設計": "Visual Design", "视觉设计": "Visual Design", "交互設計": "Interaction Design", "交互设计": "Interaction Design",

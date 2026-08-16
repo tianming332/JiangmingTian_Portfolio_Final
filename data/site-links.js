@@ -1,12 +1,16 @@
-/* 固定线上接口；无论从本机还是 GitHub Pages 打开，都跳转到公开网页。 */
+/*
+ * 主站统一导航接口。
+ * 年度作品集、AI 视频和画廊先进入主站内部页面；真正的外部站点链接
+ * 只配置在对应的卡片数据中（collections.js / videos.js）。
+ */
 (function () {
   "use strict";
   window.TJM_SITES = Object.freeze({
-    main: "https://tianming332.github.io/JiangmingTian_Portfolio_Final/#all-works",
-    annual: "https://tianming332.github.io/TianJiangming-s-portfolio/",
+    main: "index.html#all-works",
+    annual: "collections.html",
     applied: "https://tianming332.github.io/Applied-Brand-Desig_wed/",
-    videos: "https://tianming332.github.io/Tian_vidos/",
-    gallery: "https://tianming332.github.io/JiangmingTian_Portfolio_Final/gallery.html"
+    videos: "video.html",
+    gallery: "gallery.html"
   });
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("[data-site-key]").forEach(function (link) {
