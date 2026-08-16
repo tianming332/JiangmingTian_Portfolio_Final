@@ -79,23 +79,50 @@
       asArray(item.types).forEach(function (key) { if (types.indexOf(key) === -1) types.push(key); });
     });
     function append(group, key) {
-      if (panel.querySelector('[data-group="' + group + '"][data-filter="' + key + '"]')) return;
-      var holder = panel.querySelector('[data-group="' + group + '"]') && panel.querySelector('[data-group="' + group + '"]').parentElement;
-      if (!holder) return;
-      var button = document.createElement("button");
-      button.type = "button";
-      button.className = "filter-chip";
-      button.dataset.group = group;
-      button.dataset.filter = key;
-      var metaGroup = group === "direction" ? "directions" : "types";
-      var hans = metaText(metaGroup, key, "zh-hans"), hant = metaText(metaGroup, key, "zh-hant"), en = metaText(metaGroup, key, "en");
-      button.setAttribute("data-i18n", "");
-      button.setAttribute("data-i18n-hans", hans);
-      button.setAttribute("data-i18n-hant", hant);
-      button.setAttribute("data-i18n-en", en);
-      button.textContent = hans;
+  if (panel.querySelector('[data-group="' + group + '"][data-filter="' + key + '"]')) return;
+
+  // interaction 逻辑上仍属于 direction，
+  // 但视觉上放到“作品类型”这一排。
+  var visualGroup = key === "interaction" ? "type" : group;
+
+  var anchor = panel.querySelector('[data-group="' + visualGroup + '"]');
+  var holder = anchor && anchor.parentElement;
+  if (!holder) return;
+
+  var button = document.createElement("button");
+  button.type = "button";
+  button.className = "filter-chip";
+
+  // 注意：这里仍然保留 direction，不改变原有筛选逻辑
+  button.dataset.group = group;
+  button.dataset.filter = key;
+
+  var metaGroup = group === "direction" ? "directions" : "types";
+  var hans = metaText(metaGroup, key, "zh-hans");
+  var hant = metaText(metaGroup, key, "zh-hant");
+  var en = metaText(metaGroup, key, "en");
+
+  button.setAttribute("data-i18n", "");
+  button.setAttribute("data-i18n-hans", hans);
+  button.setAttribute("data-i18n-hant", hant);
+  button.setAttribute("data-i18n-en", en);
+  button.textContent = hans;
+
+  // 把“交互设计”放在 UI / UX 后面
+  if (key === "interaction") {
+    var uiux = holder.querySelector(
+      '[data-group="type"][data-filter="uiux"]'
+    );
+
+    if (uiux) {
+      uiux.insertAdjacentElement("afterend", button);
+    } else {
       holder.appendChild(button);
     }
+  } else {
+    holder.appendChild(button);
+  }
+}
     directions.forEach(function (key) { append("direction", key); });
     types.forEach(function (key) { append("type", key); });
   }
