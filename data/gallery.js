@@ -35,7 +35,6 @@ window.GALLERY_ITEMS = [
   { id: "g-034", src: "uploads/gallery/g-034.webp", title: "破冰", titleEn: "BREAK THE ICE", tags: ["graphic", "editorial"], description: "文字與圖像穿過社群貼文的邊界。" },
   { id: "g-035", src: "uploads/gallery/g-035.webp", title: "行星分布圖", titleEn: "PLANETARY MAP", tags: ["information", "graphic"], description: "以深色資訊圖呈現天體的距離與秩序。" },
   { id: "g-036", src: "uploads/gallery/g-036.webp", title: "疼痛側面", titleEn: "PROFILE OF PAIN", tags: ["graphic", "editorial"], description: "黑色版面裡一張關於感受的 X 光剪影。" },
-  { id: "g-037", src: "uploads/gallery/g-037.webp", title: "由美子", titleEn: "YUMIKO", tags: ["photography", "portrait"], description: "夜色中保留的一段人物記憶。" },
   { id: "g-038", src: "uploads/gallery/g-038.webp", title: "隕石降落圖", titleEn: "METEORITE MAP", tags: ["information", "graphic"], description: "讓資料以星圖般的方式被閱讀。" },
   { id: "g-039", src: "uploads/gallery/g-039.webp", title: "紅色礦物", titleEn: "RED MINERAL", tags: ["ai-image", "visual"], description: "深黑空間裡浮現的紅色晶體質感。" },
   { id: "g-040", src: "uploads/gallery/g-040.webp", title: "青色礦物", titleEn: "CYAN MINERAL", tags: ["ai-image", "visual"], description: "以冷色光感探索晶體的生成表面。" },
@@ -44,5 +43,14 @@ window.GALLERY_ITEMS = [
 ];
 
 window.GALLERY_TAGS = {
-  "photography": "攝影", "graphic": "平面設計", "graphic-design": "圖形設計", "illustration": "插畫", "editorial": "畫冊", "information": "資訊可視化", "portrait": "人物", "visual": "視覺設計", "ai-image": "AI 圖像", "ai-animation": "AI 動畫"
+  "photography": { hans: "摄影", hant: "攝影", en: "Photography" },
+  "graphic": { hans: "平面设计", hant: "平面設計", en: "Graphic Design" },
+  "graphic-design": { hans: "图形设计", hant: "圖形設計", en: "Graphic Design" },
+  "illustration": { hans: "插画", hant: "插畫", en: "Illustration" },
+  "editorial": { hans: "画册", hant: "畫冊", en: "Editorial" },
+  "information": { hans: "信息可视化", hant: "資訊可視化", en: "Information Visualization" },
+  "portrait": { hans: "人物", hant: "人物", en: "Portrait" },
+  "visual": { hans: "视觉设计", hant: "視覺設計", en: "Visual Design" },
+  "ai-image": { hans: "AI图像", hant: "AI圖像", en: "AI Image" },
+  "ai-animation": { hans: "AI动画", hant: "AI動畫", en: "AI Animation" }
 };

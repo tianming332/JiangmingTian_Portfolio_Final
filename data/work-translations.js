@@ -6,7 +6,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "把邻里连接、智慧科技与家园社区转化为温暖、稳定的品牌识别。",
       "overview": "项目以邻里关系、智慧科技与家园社区为核心，将人与人之间的连接感转化为亲和、稳定、易传播的图形符号，建立包含 Logo、标准色、字体、辅助图形、海报与导视的完整系统。",
       "tags": [
-        "实际落地",
+        "落地项目",
         "品牌识别",
         "智慧社区"
       ]
@@ -16,7 +16,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "把鄰里連接、智慧科技與家園社區轉化為溫暖、穩定的品牌識別。",
       "overview": "項目以鄰里關係、智慧科技與家園社區為核心，將人與人之間的連接感轉化為親和、穩定、易傳播的圖形符號，建立包含 Logo、標準色、字體、輔助圖形、海報與導視的完整系統。",
       "tags": [
-        "實際落地",
+        "落地項目",
         "品牌識別",
         "智慧社區"
       ]
@@ -38,7 +38,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "以运动、平衡与自然共生，建立舒展的健康生活品牌印象。",
       "overview": "品牌使用瑜伽姿态、叶片和山形元素表达运动、健康、平衡和自然共生，形成轻松、自然、舒展的视觉印象，并延展至标准色、辅助图形与周边应用。",
       "tags": [
-        "实际落地",
+        "落地项目",
         "品牌识别",
         "运动健康"
       ]
@@ -48,7 +48,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "以運動、平衡與自然共生，建立舒展的健康生活品牌印象。",
       "overview": "品牌使用瑜伽姿態、葉片和山形元素表達運動、健康、平衡和自然共生，形成輕鬆、自然、舒展的視覺印象，並延展至標準色、輔助圖形與周邊應用。",
       "tags": [
-        "實際落地",
+        "落地項目",
         "品牌識別",
         "運動健康"
       ]
@@ -70,7 +70,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "以盾牌、树叶、水滴与循环箭头，表达科技守护生态的行业属性。",
       "overview": "标志由盾牌、树叶、水滴与循环箭头构成，突出保护、自然、精准与循环的行业语义。视觉系统覆盖 Logo、标准字、车身、工服与品牌物料。",
       "tags": [
-        "实际落地",
+        "落地项目",
         "品牌识别",
         "生态检测"
       ]
@@ -80,7 +80,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "以盾牌、樹葉、水滴與循環箭頭，表達科技守護生態的行業屬性。",
       "overview": "標誌由盾牌、樹葉、水滴與循環箭頭構成，突出保護、自然、精準與循環的行業語義。視覺系統覆蓋 Logo、標準字、車身、工服與品牌物料。",
       "tags": [
-        "實際落地",
+        "落地項目",
         "品牌識別",
         "生態檢測"
       ]
@@ -102,7 +102,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "从字母与线缆连接中提炼工业科技品牌符号。",
       "overview": "品牌图形从 L、Y 字母与线缆连接中提炼，视觉系统强调科技蓝、工业品质与稳定传输感，落地至包装、工服、车辆与导视等使用场景。",
       "tags": [
-        "实际落地",
+        "落地项目",
         "品牌识别",
         "工业科技"
       ]
@@ -112,7 +112,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "從字母與線纜連接中提煉工業科技品牌符號。",
       "overview": "品牌圖形從 L、Y 字母與線纜連接中提煉，視覺系統強調科技藍、工業品質與穩定傳輸感，落地至包裝、工服、車輛與導視等使用場景。",
       "tags": [
-        "實際落地",
+        "落地項目",
         "品牌識別",
         "工業科技"
       ]
@@ -134,7 +134,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "以山海交汇、阳光海岸建立开放明亮的区域公共品牌。",
       "overview": "项目从山海交汇、阳光海岸与公共文化形象中提取视觉语汇，以日出、海浪和地域景观建立开放、包容、明亮的区域识别，应用于海报、物料与公共导视。",
       "tags": [
-        "实际落地",
+        "落地项目",
         "品牌识别",
         "公共文旅"
       ]
@@ -144,7 +144,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "以山海交匯、陽光海岸建立開放明亮的區域公共品牌。",
       "overview": "項目從山海交匯、陽光海岸與公共文化形象中提取視覺語彙，以日出、海浪和地域景觀建立開放、包容、明亮的區域識別，應用於海報、物料與公共導視。",
       "tags": [
-        "實際落地",
+        "落地項目",
         "品牌識別",
         "公共文旅"
       ]
@@ -166,7 +166,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "以中文字形、山野植物与山水元素建立自然食品品牌。",
       "overview": "品牌以“闫”字为视觉核心，融合山野植物与山水线条，突出山野食材、传统工艺与自然本味，形成 Logo、包装、门店、服装与名片等完整应用。",
       "tags": [
-        "实际落地",
+        "落地项目",
         "品牌识别",
         "餐饮品牌"
       ]
@@ -176,7 +176,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "以中文字形、山野植物與山水元素建立自然食品品牌。",
       "overview": "品牌以「閆」字為視覺核心，融合山野植物與山水線條，突出山野食材、傳統工藝與自然本味，形成 Logo、包裝、門店、服裝與名片等完整應用。",
       "tags": [
-        "實際落地",
+        "落地項目",
         "品牌識別",
         "餐飲品牌"
       ]
@@ -198,7 +198,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "已预留为独立作品卡；补入真实标题、说明与图片后即可完整展示。",
       "overview": "这是第七个落地项目的资料预留页。目前没有足够的标题、图片与项目说明，因此使用清楚标记的占位内容，不虚构项目信息。",
       "tags": [
-        "实际落地",
+        "落地项目",
         "资料待补"
       ]
     },
@@ -207,7 +207,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "已預留為獨立作品卡；補入真實標題、說明與圖片後即可完整展示。",
       "overview": "這是第七個落地項目的資料預留頁。目前沒有足夠的標題、圖片與項目說明，因此使用清楚標記的占位內容，不虛構項目信息。",
       "tags": [
-        "實際落地",
+        "落地項目",
         "資料待補"
       ]
     },
@@ -227,7 +227,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "已预留为独立作品卡；补入真实标题、说明与图片后即可完整展示。",
       "overview": "这是第八个落地项目的资料预留页。目前没有足够的标题、图片与项目说明，因此使用清楚标记的占位内容，不虚构项目信息。",
       "tags": [
-        "实际落地",
+        "落地项目",
         "资料待补"
       ]
     },
@@ -236,7 +236,7 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "已預留為獨立作品卡；補入真實標題、說明與圖片後即可完整展示。",
       "overview": "這是第八個落地項目的資料預留頁。目前沒有足夠的標題、圖片與項目說明，因此使用清楚標記的占位內容，不虛構項目信息。",
       "tags": [
-        "實際落地",
+        "落地項目",
         "資料待補"
       ]
     },
@@ -570,9 +570,9 @@ window.PORTFOLIO_TRANSLATIONS = Object.freeze({
       "en": "AI Image"
     },
     "ai-video": {
-      "zh-hans": "AI 视频",
-      "zh-hant": "AI 視頻",
-      "en": "AI Video"
+      "zh-hans": "AI-Videos",
+      "zh-hant": "AI-Videos",
+      "en": "AI-Videos"
     },
     "web-tool": {
       "zh-hans": "Web 工具",
@@ -595,8 +595,8 @@ window.PORTFOLIO_TRANSLATIONS = Object.freeze({
       "en": "Editorial Design"
     },
     "applied": {
-      "zh-hans": "实际落地",
-      "zh-hant": "實際落地",
+      "zh-hans": "落地项目",
+      "zh-hant": "落地項目",
       "en": "Applied"
     },
     "album": {

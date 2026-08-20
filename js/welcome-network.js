@@ -10,7 +10,7 @@
     { key: "information", hans: "信息可视化", hant: "信息可視化", en: "INFORMATION", x: .70, y: .24 },
     { key: "ai", hans: "人工智能", hant: "人工智能", en: "AI", x: .79, y: .40 },
     { key: "ip", hans: "IP 形象", hant: "IP 形象", en: "CHARACTER", x: .91, y: .45 },
-    { key: "applied", hans: "实际落地", hant: "實際落地", en: "IMPLEMENTED", x: .84, y: .63 },
+    { key: "applied", hans: "落地项目", hant: "落地項目", en: "IMPLEMENTED", x: .84, y: .63 },
     { key: "installation", hans: "装置", hant: "裝置", en: "INSTALLATION", x: .66, y: .78 },
     { key: "visual", hans: "视觉", hant: "視覺", en: "VISUAL", x: .47, y: .73 },
     { key: "ai-image", hans: "AI 图像", hant: "AI 圖像", en: "GENERATIVE", x: .28, y: .81 },

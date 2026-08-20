@@ -138,6 +138,11 @@
     var titleHans = workText(item, "zh-hans", "title");
     var titleHant = workText(item, "zh-hant", "title");
     var titleEn = workText(item, "en", "title");
+    var rawYear = String(item.year || "");
+    var yearIsPending = /待[補补]充/.test(rawYear);
+    var yearHans = yearIsPending ? "待补充" : rawYear;
+    var yearHant = yearIsPending ? "待補充" : rawYear;
+    var yearEn = yearIsPending ? "TBD" : rawYear;
     var tagHans = workText(item, "zh-hans", "tags") || [];
     var tagHant = workText(item, "zh-hant", "tags") || [];
     var tagEn = workText(item, "en", "tags") || [];
@@ -156,7 +161,7 @@
         '<div class="project-media">' +
           '<img class="project-cover" src="' + escapeHTML(item.cover) + '" alt="' + escapeHTML(titleHans) + '" loading="lazy">' +
           '<div class="project-glass">' + flags +
-            '<div class="glass-head"><span>WORK / ' + escapeHTML(item.year || "") + '</span><span>↗</span></div>' +
+            '<div class="glass-head"><span>WORK / <span' + i18nAttributes(yearHans, yearHant, yearEn) + '>' + escapeHTML(yearHans) + '</span></span><span>↗</span></div>' +
             '<div class="glass-title"><strong' + i18nAttributes(titleHans, titleHant, titleEn) + '>' + escapeHTML(titleHans || "未命名项目") + '</strong><small>' + escapeHTML(item.titleEn || "") + '</small></div>' +
             '<div class="glass-meta"' + i18nAttributes(labelsHans.join(" · ") || "作品", labelsHant.join(" · ") || "作品", labelsEn.join(" · ") || "Works") + '>' + escapeHTML(labelsHans.join(" · ") || "作品") + '</div>' +
           '</div>' +
@@ -170,7 +175,7 @@
             var en = isItemTag ? (tagEn[tagIndex] || tag) : metaText("types", tag, "en");
             return '<span' + i18nAttributes(hans, hant, en) + '>' + escapeHTML(hans) + '</span>';
           }).join("") + '</div>' +
-          '<span class="tags-row-year">' + escapeHTML(item.year || "") + '</span>' +
+          '<span class="tags-row-year"' + i18nAttributes(yearHans, yearHant, yearEn) + '>' + escapeHTML(yearHans) + '</span>' +
         '</div>' +
       '</a>' +
     '</article>';
@@ -181,7 +186,7 @@
     if (!target) return;
     var list = Array.isArray(items) ? items : [];
     target.innerHTML = list.length ? list.map(function (item, index) { return createProjectCard(item, index); }).join("") :
-      '<div class="col-12 empty-state"><p>' + escapeHTML(emptyText || "暫時沒有符合條件的項目。") + '</p></div>';
+      '<div class="col-12 empty-state"><p>' + escapeHTML(emptyText || "暂时没有符合条件的项目。") + '</p></div>';
   }
 
   function renderSimpleCards(targetId, items, kind) {
@@ -299,23 +304,40 @@
     var id = new URLSearchParams(location.search).get("id");
     var item = (window.WORKS || []).find(function (work) { return work.id === id; });
     if (!item) {
-      target.innerHTML = '<div class="empty-state"><h1>沒有找到這個項目</h1><p>請返回所有作品繼續瀏覽。</p><a href="index.html#all-works" class="button-link">返回所有作品</a></div>';
+      target.innerHTML = '<div class="empty-state"><h1' + i18nAttributes("没有找到这个项目", "沒有找到這個項目", "Project not found") + '>没有找到这个项目</h1>' +
+        '<p' + i18nAttributes("请返回所有作品继续浏览。", "請返回所有作品繼續瀏覽。", "Return to All Works to continue browsing.") + '>请返回所有作品继续浏览。</p>' +
+        '<a href="index.html#all-works" class="button-link"' + i18nAttributes("返回所有作品", "返回所有作品", "Back to All Works") + '>返回所有作品</a></div>';
       return;
     }
-    var types = asArray(item.types).map(function (type) { return getMeta("types", type); }).join(" · ");
-    target.innerHTML = '<header class="detail-hero"><p class="eyebrow">' + escapeHTML(types) + ' / ' + escapeHTML(item.year) + '</p>' +
-      '<h1>' + escapeHTML(item.title) + '</h1><p class="detail-en">' + escapeHTML(item.titleEn) + '</p>' +
-      '<p class="detail-lead">' + escapeHTML(item.description) + '</p></header>' +
-      '<img class="detail-cover" src="' + escapeHTML(item.cover) + '" alt="' + escapeHTML(item.title) + '">' +
-      '<section class="detail-placeholder"><p class="eyebrow">项目内容 / PROJECT CONTENT</p><h2>内容待补充</h2>' +
-      '<p>项目卡片和分类已经建立。请使用本地作品管理页补充项目背景、个人职责、使用工具、图片和外部链接。</p>' +
-      '<a href="index.html#all-works" class="text-link">← 返回所有作品</a></section>';
-    document.title = item.title + " | 天将明作品集";
+    var typeKeys = asArray(item.types);
+    var typesHans = typeKeys.map(function (type) { return metaText("types", type, "zh-hans"); }).join(" · ");
+    var typesHant = typeKeys.map(function (type) { return metaText("types", type, "zh-hant"); }).join(" · ");
+    var typesEn = typeKeys.map(function (type) { return metaText("types", type, "en"); }).join(" · ");
+    var titleHans = workText(item, "zh-hans", "title");
+    var titleHant = workText(item, "zh-hant", "title");
+    var titleEn = workText(item, "en", "title");
+    var rawYear = String(item.year || "");
+    var yearIsPending = /待[補补]充/.test(rawYear);
+    var yearHans = yearIsPending ? "待补充" : rawYear;
+    var yearHant = yearIsPending ? "待補充" : rawYear;
+    var yearEn = yearIsPending ? "TBD" : rawYear;
+    var descriptionHans = workText(item, "zh-hans", "description");
+    var descriptionHant = workText(item, "zh-hant", "description");
+    var descriptionEn = workText(item, "en", "description");
+    target.innerHTML = '<header class="detail-hero"><p class="eyebrow"' + i18nAttributes(typesHans + " / " + yearHans, typesHant + " / " + yearHant, typesEn + " / " + yearEn) + '>' + escapeHTML(typesHans) + ' / ' + escapeHTML(yearHans) + '</p>' +
+      '<h1' + i18nAttributes(titleHans, titleHant, titleEn) + '>' + escapeHTML(titleHans) + '</h1><p class="detail-en">' + escapeHTML(item.titleEn) + '</p>' +
+      '<p class="detail-lead"' + i18nAttributes(descriptionHans, descriptionHant, descriptionEn) + '>' + escapeHTML(descriptionHans) + '</p></header>' +
+      '<img class="detail-cover" src="' + escapeHTML(item.cover) + '" alt="' + escapeHTML(titleHans) + '">' +
+      '<section class="detail-placeholder"><p class="eyebrow"' + i18nAttributes("项目内容 / PROJECT CONTENT", "項目內容 / PROJECT CONTENT", "PROJECT CONTENT") + '>项目内容 / PROJECT CONTENT</p>' +
+      '<h2' + i18nAttributes("内容待补充", "內容待補充", "Content pending") + '>内容待补充</h2>' +
+      '<p' + i18nAttributes("项目卡片和分类已经建立。请使用本地作品管理页补充项目背景、个人职责、使用工具、图片和外部链接。", "項目卡片和分類已經建立。請使用本地作品管理頁補充項目背景、個人職責、使用工具、圖片和外部鏈接。", "The project card and categories are ready. Use the local project manager to add the background, role, tools, images, and external links.") + '>项目卡片和分类已经建立。请使用本地作品管理页补充项目背景、个人职责、使用工具、图片和外部链接。</p>' +
+      '<a href="index.html#all-works" class="text-link"' + i18nAttributes("← 返回所有作品", "← 返回所有作品", "← Back to All Works") + '>← 返回所有作品</a></section>';
+    document.title = titleHans + " | 天将明作品集";
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    renderProjects("worksGrid", window.WORKS, "暫時沒有作品。");
-    renderProjects("appliedGrid", (window.WORKS || []).filter(function (item) { return ["launched", "implemented", "exhibited"].indexOf(item.status) !== -1; }), "暫時沒有標記為已落地的項目。");
+    renderProjects("worksGrid", window.WORKS, "暂时没有作品。");
+    renderProjects("appliedGrid", (window.WORKS || []).filter(function (item) { return ["launched", "implemented", "exhibited"].indexOf(item.status) !== -1; }), "暂时没有标记为已落地的项目。");
     renderSimpleCards("collectionsGrid", window.COLLECTIONS, "collection");
     renderSimpleCards("videosGrid", window.VIDEOS, "video");
     setupFilters();

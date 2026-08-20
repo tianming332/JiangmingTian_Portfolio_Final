@@ -13,7 +13,8 @@
   var activeTag = "all";
   var dragging = null;
   var tagNames = window.GALLERY_TAGS || {};
-  var hansMap = { "觸":"触", "視":"视", "圖":"图", "與":"与", "網":"网", "絡":"络", "邊":"边", "裡":"里", "個":"个", "檔":"档", "轉":"转", "譯":"译", "為":"为", "幾":"几", "線":"线", "並":"并", "關":"关", "節":"节", "點":"点", "記":"记", "錄":"录", "讓":"让", "進":"进", "將":"将", "寫":"写", "畫":"画", "攝":"摄", "體":"体", "動":"动", "資":"资", "訊":"讯", "設":"设", "計":"计", "構":"构", "見":"见", "實":"实", "驗":"验", "顏":"颜", "達":"达", "靜":"静", "從":"从", "開":"开", "過":"过", "種":"种", "廣":"广", "場":"场", "對":"对", "應":"应", "來":"来", "無":"无", "夢":"梦", "隕":"陨", "礦":"矿", "態":"态", "還":"还", "號":"号", "標":"标", "籤":"签", "載":"载", "齊":"齐", "這":"这", "張":"张", "選":"选", "擇":"择", "優":"优", "滿":"满", "續":"续" };
+  var hansMap = { "觸":"触", "視":"视", "圖":"图", "與":"与", "網":"网", "絡":"络", "邊":"边", "裡":"里", "個":"个", "檔":"档", "轉":"转", "譯":"译", "為":"为", "幾":"几", "線":"线", "並":"并", "關":"关", "節":"节", "點":"点", "記":"记", "錄":"录", "讓":"让", "進":"进", "將":"将", "寫":"写", "畫":"画", "攝":"摄", "體":"体", "動":"动", "資":"资", "訊":"讯", "設":"设", "計":"计", "構":"构", "見":"见", "實":"实", "驗":"验", "顏":"颜", "達":"达", "靜":"静", "從":"从", "開":"开", "過":"过", "種":"种", "廣":"广", "場":"场", "對":"对", "應":"应", "來":"来", "無":"无", "夢":"梦", "隕":"陨", "礦":"矿", "態":"态", "還":"还", "號":"号", "標":"标", "籤":"签", "載":"载", "齊":"齐", "這":"这", "張":"张", "選":"选", "擇":"择", "優":"优", "滿":"满", "續":"续", "鎧":"铠", "門":"门", "鳥":"鸟", "圓":"圆", "環":"环", "葉":"叶", "閃":"闪", "銀":"银", "藍":"蓝", "隊":"队", "湧":"涌", "現":"现", "龍":"龙", "覺":"觉", "狀":"状", "霧":"雾", "紅":"红" };
+  Object.assign(hansMap, { "勢":"势", "暫":"暂", "質":"质", "結":"结", "讀":"读", "係":"系", "條":"条", "紋":"纹", "樹":"树", "風":"风", "連":"连", "極":"极", "識":"识", "長":"长", "階":"阶", "運":"运", "鏡":"镜", "塊":"块", "東":"东", "傳":"传", "話":"话", "練":"练", "習":"习", "緊":"紧", "躍":"跃", "於":"于", "處":"处" });
 
   function toHans(value) {
     return String(value == null ? "" : value).split("").map(function (char) { return hansMap[char] || char; }).join("");
@@ -25,14 +26,28 @@
     });
   }
   function list(value) { return Array.isArray(value) ? value : []; }
-  function tagName(tag) { return toHans(tagNames[tag] || tag); }
+  function currentLanguage() { return window.tjmLanguage ? window.tjmLanguage.current() : "zh-hans"; }
+  function tagName(tag) {
+    var record = tagNames[tag] || tag;
+    if (typeof record === "string") return currentLanguage() === "zh-hans" ? toHans(record) : record;
+    return currentLanguage() === "en" ? (record.en || tag) : (currentLanguage() === "zh-hant" ? (record.hant || record.hans || tag) : (record.hans || tag));
+  }
+  function localizedItem(item) {
+    var language = currentLanguage();
+    if (language === "en") return Object.assign({}, item, {
+      title: item.titleEn || "Gallery Image",
+      description: item.descriptionEn || "A visual study from the portfolio archive."
+    });
+    if (language === "zh-hant") return Object.assign({}, item, { title: item.title || "未命名影像", description: item.description || "作品集中的一段視覺記錄。" });
+    return Object.assign({}, item, { title: toHans(item.title || "未命名影像"), description: toHans(item.description || "作品集中的一段视觉记录。") });
+  }
   function fallbackItems() {
     return (window.WORKS || []).filter(function (item) { return item && item.cover; }).map(function (item, index) {
       return { id: item.id, src: item.cover, title: item.title || "未命名影像", titleEn: item.titleEn || "", tags: list(item.tags), description: item.summary || "作品集中的一段視覺記錄。", no: "G-" + String(index + 1).padStart(3, "0") };
     });
   }
   var items = (window.GALLERY_ITEMS || fallbackItems()).map(function (item, index) {
-    return Object.assign({}, item, { title: toHans(item.title), description: toHans(item.description), no: item.no || "G-" + String(index + 1).padStart(3, "0"), tags: list(item.tags) });
+    return Object.assign({}, item, { no: item.no || "G-" + String(index + 1).padStart(3, "0"), tags: list(item.tags) });
   });
   var tagList = Array.from(new Set(items.reduce(function (all, item) { return all.concat(item.tags); }, [])));
 
@@ -68,6 +83,7 @@
           titleEn: "GALLERY IMAGE " + padded,
           tags: ["visual"],
           description: "按固定编号自动载入的画廊影像。",
+          descriptionEn: "A gallery image loaded automatically by its sequence number.",
           no: "G-" + padded
         });
         misses = 0;
@@ -118,6 +134,7 @@
     });
   }
   function openViewer(item) {
+    item = localizedItem(item);
     viewerImage.src = item.src;
     viewerImage.alt = item.title;
     viewerImage.dataset.translate = "0";
@@ -129,6 +146,7 @@
   function render() {
     var visible = currentItems();
     stage.innerHTML = visible.map(function (item, index) {
+      item = localizedItem(item);
       var point = positionFor(index, visible.length);
       return '<button class="gallery-image-card" type="button" data-gallery-id="' + esc(item.id) + '" style="--x:' + point.x + '%;--y:' + point.y + '%;--r:' + point.r + 'deg;--w:' + point.size + 'px;--scatter-x:' + point.scatterX + '%;--scatter-y:' + point.scatterY + '%;--scatter-r:' + point.scatterR + 'deg;z-index:' + point.z + '">' +
         '<img src="' + esc(item.src) + '" alt="' + esc(item.title) + '" loading="lazy"><span class="gallery-image-info"><b>' + esc(item.no) + '</b><strong>' + esc(item.title) + '</strong><small>' + esc(item.titleEn) + '</small><em>' + item.tags.slice(0, 2).map(function (tag) { return esc(tagName(tag)); }).join(' · ') + '</em><p>' + esc(item.description || '') + '</p></span>' +
@@ -162,5 +180,8 @@
   viewerCanvas.addEventListener("pointerup", stopDrag); viewerCanvas.addEventListener("pointercancel", stopDrag);
   setScale(1);
   render();
-  discoverSequentialImages();
+  document.addEventListener("tjm:languagechange", function () {
+    if (viewer.classList.contains("open")) close();
+    render();
+  });
 }());

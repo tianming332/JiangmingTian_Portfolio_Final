@@ -4,18 +4,19 @@
   var themeNames = { white: "白", gray: "灰", black: "黑" };
   var languageNames = { "zh-hans": "简体", "zh-hant": "繁體", en: "English" };
   var originalTexts = new WeakMap();
+  var originalAttributes = new WeakMap();
   var currentLanguage = "zh-hans";
   var currentTheme = "white";
 
   var english = {
-    "天将明": "Tian Jiangming", "所有作品": "All Works", "實際項目": "Applied Projects", "实际项目": "Applied Projects",
-    "年度作品集": "Annual Portfolios", "畫廊": "Gallery", "画廊": "Gallery", "Tian_vidos": "Tian_vidos", "AI 視頻": "AI Videos", "AI 视频": "AI Videos", "AI視頻": "AI Videos", "AI视频": "AI Videos", "關於我": "About",
+    "天将明": "Tian Jiangming", "所有作品": "All Works", "落地項目": "Applied Projects", "落地项目": "Applied Projects",
+    "年度作品集": "Annual Portfolios", "畫廊": "Gallery", "画廊": "Gallery", "AI-Videos": "AI-Videos", "關於我": "About", "关于我": "About",
     "作品": "Works", "集合": "Collections", "信息": "Info", "創作方向": "Creative Direction", "创作方向": "Creative Direction",
     "作品類型": "Work Type", "作品类型": "Work Type", "全部": "All", "AI 創作": "AI Creation", "AI 创作": "AI Creation",
     "視覺設計": "Visual Design", "视觉设计": "Visual Design", "交互設計": "Interaction Design", "交互设计": "Interaction Design",
     "平面設計": "Graphic Design", "平面设计": "Graphic Design", "裝置設計": "Installation", "装置设计": "Installation",
     "信息可視化": "Information Visualization", "信息可视化": "Information Visualization", "AI 圖像": "AI Image", "AI 图像": "AI Image",
-    "AI 視頻": "AI Video", "AI 视频": "AI Video", "程序": "Program", "研究報告": "Research Report", "研究报告": "Research Report",
+    "程序": "Program", "研究報告": "Research Report", "研究报告": "Research Report",
     "書籍版式": "Editorial", "书籍版式": "Editorial", "畫冊": "Album", "画册": "Album", "圖形設計": "Graphic Design", "图形设计": "Graphic Design",
     "攝影": "Photography", "摄影": "Photography", "AI 動畫": "AI Animation", "AI 动画": "AI Animation", "動效": "Motion", "动效": "Motion",
     "矢量": "Vector", "體驗設計": "Experience Design", "体验设计": "Experience Design", "清除篩選": "Clear Filters", "清除筛选": "Clear Filters",
@@ -39,7 +40,7 @@
     "這裡匯總已上線、已實施或可體驗的項目。每個項目同時作為獨立作品出現在首頁，並以「已落地」角標標註。": "A collection of launched, implemented, and experiential projects. Each project also appears independently on the homepage with a Launched label.",
     "這裡保存年度作品集、PDF 或獨立網頁。單項作品請從「所有作品」瀏覽。": "Annual portfolios, PDFs, and standalone sites are collected here. Browse individual projects through All Works.",
     "實景拍攝、AI 改造、生成式動畫與短片練習的專題集合。代表項目也可以作為單項作品進入首頁。": "A collection of live-action footage, AI transformations, generative animation, and short-film studies. Selected projects also appear individually on the homepage.",
-    "實際落地": "Applied", "品牌識別": "Brand Identity", "智慧社區": "Smart Community", "運動健康": "Sports & Wellness",
+    "落地項目": "Applied", "品牌識別": "Brand Identity", "智慧社區": "Smart Community", "運動健康": "Sports & Wellness",
     "生態檢測": "Ecological Detection", "工業科技": "Industrial Technology", "公共文旅": "Public Culture & Tourism", "餐飲品牌": "Food Brand",
     "資料待補": "Content Pending", "感官設計": "Sensory Design", "痛覺可視化": "Pain Visualization", "夢境拼圖": "Dream Puzzle",
     "數據敘事": "Data Narrative", "跨媒介": "Cross-media", "無障礙設計": "Accessibility Design", "觸覺交互": "Tactile Interaction",
@@ -73,7 +74,32 @@
     "找到": "Found", "個項目": "projects", "個匹配項目優先": "matching projects prioritized", "當前篩選：": "Current filters: ",
     "菜單 / MENU": "MENU", "收起左側欄目": "Collapse sidebar", "展開左側欄目": "Expand sidebar",
     "收起右上角設定": "Collapse settings", "展開右上角設定": "Expand settings",
-    "概念項目": "Concept", "原型項目": "Prototype", "已實施": "Implemented", "已展出": "Exhibited"
+    "概念項目": "Concept", "原型項目": "Prototype", "已實施": "Implemented", "已展出": "Exhibited",
+    "視覺設計 × AI 應用": "VISUAL DESIGN × AI", "视觉设计 × AI 应用": "VISUAL DESIGN × AI",
+    "© 天将明個人作品集": "© Tian Jiangming Portfolio", "© 天将明个人作品集": "© Tian Jiangming Portfolio",
+    "落地項目 / APPLIED": "APPLIED PROJECTS", "落地项目 / APPLIED": "APPLIED PROJECTS",
+    "關於 / ABOUT": "ABOUT", "关于 / ABOUT": "ABOUT",
+    "AI-Videos / VIDEO ARCHIVE": "AI VIDEO ARCHIVE",
+    "本頁匯總實景拍攝、AI 改造、生成式動畫與短片練習；點擊下方卡片後，才會進入獨立的 AI-Videos 影像站。": "This page brings together live-action footage, AI transformations, generative animation, and short-film studies. Open the card below to enter the standalone AI-Videos archive.",
+    "本页汇总实景拍摄、AI 改造、生成式动画与短片练习；点击下方卡片后，才会进入独立的 AI-Videos 影像站。": "This page brings together live-action footage, AI transformations, generative animation, and short-film studies. Open the card below to enter the standalone AI-Videos archive.",
+    "我是天将明，一名关注数字视觉体验的设计师与视觉创作者。": "I am Tian Jiangming, a designer and visual creator focused on digital visual experiences.",
+    "我拥有视觉传达设计背景，擅长品牌视觉、UI/UX 设计、图标设计、界面规划与视觉系统构建。在设计过程中，我重视从调研、用户需求、视觉风格到最终呈现的完整逻辑，希望通过清晰的视觉语言，让复杂的信息变得更容易理解。": "I have a background in visual communication design, with experience in brand identity, UI/UX, icon design, interface planning, and visual systems. My process connects research, user needs, visual direction, and final delivery into a clear and complete design logic.",
+    "我也持续关注 AI 与设计的结合，学习并使用 Stable Diffusion、ComfyUI 和 LLM 工具，将 AI 融入灵感生成、方案整理、视觉探索与设计流程优化。我开发过 AI 短剧脚本转写、AI 语音检测等 Web 工具，也尝试过由 Agent 驱动的 AI 短剧全流程制作。我希望在不断变化的数字环境中持续探索新的表达方式，创造更有吸引力、更有逻辑感的视觉体验。": "I continue to explore the intersection of AI and design through Stable Diffusion, ComfyUI, and LLM tools. I have developed web workflows for AI short-drama script transcription and AI voice detection, and experimented with agent-driven end-to-end AI short-drama production. I aim to create engaging, logically structured visual experiences in a constantly changing digital environment.",
+    "本站均为原创内容，作品均已发表。欢迎通过以下方式与我联系，期待与您交流合作！": "All content on this site is original and the works have been published. Feel free to contact me for conversation and collaboration.",
+    "个人资料部分 / PROFILE SECTIONS": "PROFILE", "项目内容 / PROJECT CONTENT": "PROJECT CONTENT",
+    "没有找到这个项目": "Project not found", "请返回所有作品继续浏览。": "Return to All Works to continue browsing.",
+    "内容待补充": "Content pending", "关闭": "Close", "标签 / TAGS": "TAGS",
+    "左右拖动图片 / DRAG HORIZONTALLY": "DRAG HORIZONTALLY", "关闭图片": "Close image",
+    "选择作品标签": "Choose portfolio tags", "主导航": "Main navigation", "打开菜单": "Open menu",
+    "可缩放作品图片墙": "Zoomable portfolio image wall", "作品画廊": "Portfolio gallery",
+    "图片放大查看": "Enlarged image viewer", "放大查看的画廊图片": "Enlarged gallery image"
+  });
+  Object.assign(english, {
+    "收起左侧栏目": "Collapse sidebar", "展开左侧栏目": "Expand sidebar",
+    "收起右上角设置": "Collapse settings", "展开右上角设置": "Expand settings",
+    "拖動、連接、": "Drag, connect,", "選擇。": "select.",
+    "IP 形象": "IP Character", "Web 工具": "Web Tool", "內容待補充": "Content pending", "内容待补充": "Content pending",
+    "待補充": "To be added", "待补充": "To be added"
   });
 
   var titleEnglish = {
@@ -97,11 +123,27 @@
     "層":"层","張":"张","記":"记","錄":"录","暫":"暂","圓":"圆","隊":"队","湧":"涌","閃":"闪","銀":"银","藍":"蓝","紅":"红","礦":"矿",
     "處":"处","極":"极","紋":"纹","樹":"树","鏡":"镜","鎧":"铠","霧":"雾","門":"门","鳥":"鸟","將":"将","東":"东","則":"则","寫":"写",
     "緊":"紧","躍":"跃","資訊":"信息","築":"筑","體":"体","號":"号","並":"并","幾":"几","後":"后","歡":"欢","啟":"启","輔":"辅",
-    "補":"补","標":"标","題":"题","說":"说","這":"这","個":"个","頁":"页","裡":"里","覽":"览","項":"项","種":"种","種":"种"
+    "補":"补","標":"标","題":"题","說":"说","這":"这","個":"个","頁":"页","裡":"里","覽":"览","項":"项","種":"种",
+    "軌":"轨","墜":"坠"
   });
+
+  var simplifiedToTraditional = {};
+  Object.keys(traditionalToSimplified).forEach(function (traditional) {
+    var simplified = traditionalToSimplified[traditional];
+    if (traditional.length === 1 && simplified.length === 1 && traditional !== simplified && !simplifiedToTraditional[simplified]) {
+      simplifiedToTraditional[simplified] = traditional;
+    }
+  });
+  // These simplified characters have multiple context-dependent traditional forms.
+  // Keep the shared form here; explicit data-i18n text handles context-sensitive wording.
+  ["面", "系", "注"].forEach(function (char) { delete simplifiedToTraditional[char]; });
 
   function simplify(text) {
     return Array.from(text).map(function (char) { return traditionalToSimplified[char] || char; }).join("");
+  }
+
+  function traditionalize(text) {
+    return Array.from(text).map(function (char) { return simplifiedToTraditional[char] || char; }).join("");
   }
 
   function englishText(text) {
@@ -116,11 +158,21 @@
     return text.replace(trimmed, translated);
   }
 
+  function mediaEnglishText(text, element) {
+    var translated = englishText(text);
+    if (!/[\u3400-\u9fff]/.test(translated) || !element || !element.closest) return translated;
+    var figure = element.closest("figure");
+    if (!figure) return translated;
+    var marker = figure.querySelector("figcaption span:first-child");
+    var suffix = marker && !/[\u3400-\u9fff]/.test(marker.textContent) ? marker.textContent.trim() : "";
+    return "Project image" + (suffix ? " " + suffix : "");
+  }
+
   function translateI18nElement(element, language) {
     if (!element || element.nodeType !== 1 || !element.hasAttribute("data-i18n")) return;
     var suffix = language === "zh-hans" ? "hans" : (language === "zh-hant" ? "hant" : "en");
     var value = element.getAttribute("data-i18n-" + suffix);
-    if (value != null) element.textContent = value;
+    if (value != null) element.textContent = language === "zh-hant" ? traditionalize(value) : value;
   }
 
   function translateI18nElements(root, language) {
@@ -135,13 +187,28 @@
     if (!parent || parent.closest("script,style,.language-options,[data-i18n]")) return;
     if (!originalTexts.has(node)) originalTexts.set(node, node.nodeValue);
     var original = originalTexts.get(node);
-    node.nodeValue = language === "zh-hans" ? simplify(original) : (language === "en" ? englishText(original) : original);
+    node.nodeValue = language === "zh-hans" ? simplify(original) : (language === "en" ? mediaEnglishText(original, parent) : traditionalize(original));
+  }
+
+  function translateAttributes(element, language) {
+    if (!element || element.nodeType !== 1) return;
+    var names = ["title", "aria-label", "alt", "placeholder"];
+    var originals = originalAttributes.get(element);
+    if (!originals) { originals = {}; originalAttributes.set(element, originals); }
+    names.forEach(function (name) {
+      if (!element.hasAttribute(name)) return;
+      if (originals[name] == null) originals[name] = element.getAttribute(name);
+      var original = originals[name];
+      element.setAttribute(name, language === "zh-hans" ? simplify(original) : (language === "en" ? mediaEnglishText(original, element) : traditionalize(original)));
+    });
   }
 
   function translateTree(root, language) {
     if (!root) return;
     if (root.nodeType === 3) { translateTextNode(root, language); return; }
+    translateAttributes(root, language);
     translateI18nElements(root, language);
+    root.querySelectorAll("[title],[aria-label],[alt],[placeholder]").forEach(function (element) { translateAttributes(element, language); });
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     var node;
     while ((node = walker.nextNode())) translateTextNode(node, language);
@@ -239,7 +306,7 @@
 
   function setupPreferenceLinks() {
     document.addEventListener("click", function (event) {
-      var anchor = event.target.closest("a[data-preserve-preferences]");
+      var anchor = event.target.closest("a[data-preserve-preferences],a[data-site-key]");
       if (!anchor || !anchor.href || /^mailto:|^tel:/i.test(anchor.href)) return;
       try {
         var url = new URL(anchor.href, location.href);
@@ -268,7 +335,7 @@
         galleryLink.className = "sidebar-link" + (/gallery\.html$/i.test(location.pathname) ? " active" : "");
         galleryLink.href = (window.TJM_SITES && window.TJM_SITES.gallery) || "gallery.html";
         galleryLink.setAttribute("data-gallery-nav", "");
-        galleryLink.innerHTML = '畫廊 <small>GALLERY</small>';
+        galleryLink.innerHTML = '画廊 <small>GALLERY</small>';
         collectionsLink.insertAdjacentElement("afterend", galleryLink);
       }
     }

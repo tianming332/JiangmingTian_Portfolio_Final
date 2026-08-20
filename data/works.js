@@ -13,12 +13,12 @@ window.PORTFOLIO_META = {
     "information": "信息可视化",
     "ip": "IP 形象",
     "ai-image": "AI 图像",
-    "ai-video": "AI 视频",
+    "ai-video": "AI-Videos",
     "web-tool": "Web 工具",
     "program": "程序",
     "report": "研究报告",
     "editorial": "书籍版式",
-    "applied": "实际落地",
+    "applied": "落地项目",
     "album": "画册",
     "graphic-design": "图形设计",
     "photography": "摄影",
@@ -50,7 +50,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "实际落地",
+      "落地项目",
       "品牌识别",
       "智慧社区"
     ],
@@ -73,7 +73,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "实际落地",
+      "落地项目",
       "品牌识别",
       "运动健康"
     ],
@@ -96,7 +96,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "实际落地",
+      "落地项目",
       "品牌识别",
       "生态检测"
     ],
@@ -119,7 +119,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "实际落地",
+      "落地项目",
       "品牌识别",
       "工业科技"
     ],
@@ -142,7 +142,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "实际落地",
+      "落地项目",
       "品牌识别",
       "公共文旅"
     ],
@@ -165,7 +165,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "实际落地",
+      "落地项目",
       "品牌识别",
       "餐饮品牌"
     ],
@@ -179,7 +179,7 @@ window.WORKS = [
     "id": "applied-project-07",
     "title": "落地项目 07（资料待补）",
     "titleEn": "IMPLEMENTED PROJECT 07",
-    "year": "待補充",
+    "year": "待补充",
     "directions": [
       "visual"
     ],
@@ -187,7 +187,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "实际落地",
+      "落地项目",
       "资料待补"
     ],
     "status": "launched",
@@ -200,7 +200,7 @@ window.WORKS = [
     "id": "applied-project-08",
     "title": "落地项目 08（资料待补）",
     "titleEn": "IMPLEMENTED PROJECT 08",
-    "year": "待補充",
+    "year": "待补充",
     "directions": [
       "visual"
     ],
@@ -208,7 +208,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "实际落地",
+      "落地项目",
       "资料待补"
     ],
     "status": "launched",
@@ -399,7 +399,7 @@ window.WORKS = [
     "id": "portfolio-project-17",
     "title": "作品 17（资料待补）",
     "titleEn": "PORTFOLIO PROJECT 17",
-    "year": "待補充",
+    "year": "待补充",
     "directions": [
       "visual"
     ],
