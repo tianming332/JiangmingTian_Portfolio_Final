@@ -2,6 +2,7 @@
   "use strict";
 
   var themeNames = { white: "白", gray: "灰", black: "黑" };
+  var languageNames = { "zh-hans": "简体", "zh-hant": "繁體", en: "English" };
   var originalTexts = new WeakMap();
   var originalAttributes = new WeakMap();
   var currentLanguage = "zh-hans";
@@ -79,7 +80,7 @@
     "落地項目 / APPLIED": "APPLIED PROJECTS", "落地项目 / APPLIED": "APPLIED PROJECTS",
     "關於 / ABOUT": "ABOUT", "关于 / ABOUT": "ABOUT",
     "AI视频 / VIDEO ARCHIVE": "AI VIDEO ARCHIVE",
-    "本页汇总实景拍摄、AI 改造、生成式动画与短片练习；点击下方卡片后，才会进入独立的 AI视频影像站。": "This page brings together live-action footage, AI transformations, generative animation, and short-film studies. Open the card below to enter the standalone AI Video archive.",
+    "本頁匯總實景拍攝、AI 改造、生成式動畫與短片練習；點擊下方卡片後，才會進入獨立的 AI视频影像站。": "This page brings together live-action footage, AI transformations, generative animation, and short-film studies. Open the card below to enter the standalone AI Video archive.",
     "本页汇总实景拍摄、AI 改造、生成式动画与短片练习；点击下方卡片后，才会进入独立的 AI视频影像站。": "This page brings together live-action footage, AI transformations, generative animation, and short-film studies. Open the card below to enter the standalone AI Video archive.",
     "我是天将明，一名关注数字视觉体验的设计师与视觉创作者。": "I am Tian Jiangming, a designer and visual creator focused on digital visual experiences.",
     "我拥有视觉传达设计背景，擅长品牌视觉、UI/UX 设计、图标设计、界面规划与视觉系统构建。在设计过程中，我重视从调研、用户需求、视觉风格到最终呈现的完整逻辑，希望通过清晰的视觉语言，让复杂的信息变得更容易理解。": "I have a background in visual communication design, with experience in brand identity, UI/UX, icon design, interface planning, and visual systems. My process connects research, user needs, visual direction, and final delivery into a clear and complete design logic.",
@@ -213,13 +214,19 @@
     while ((node = walker.nextNode())) translateTextNode(node, language);
   }
 
-  function applyLanguage() {
-    currentLanguage = "zh-hans";
-    document.documentElement.lang = "zh-CN";
+  function applyLanguage(language) {
+    currentLanguage = languageNames[language] ? language : "zh-hans";
+    document.documentElement.lang = currentLanguage === "en" ? "en" : (currentLanguage === "zh-hans" ? "zh-CN" : "zh-Hant");
     document.body.dataset.language = currentLanguage;
     translateTree(document.body, currentLanguage);
-    var pageTitle = document.body.getAttribute("data-title-hans");
+    var titleSuffix = currentLanguage === "zh-hans" ? "hans" : (currentLanguage === "zh-hant" ? "hant" : "en");
+    var pageTitle = document.body.getAttribute("data-title-" + titleSuffix);
     if (pageTitle) document.title = pageTitle;
+    document.querySelectorAll("[data-language-choice]").forEach(function (button) {
+      var active = button.dataset.languageChoice === currentLanguage;
+      button.classList.toggle("active", active); button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+    try { localStorage.setItem("tjm-language-v2", currentLanguage); } catch (error) { /* no-op */ }
     document.dispatchEvent(new CustomEvent("tjm:languagechange", { detail: { language: currentLanguage } }));
   }
 
@@ -237,9 +244,11 @@
   function setupSettings() {
     var settings = document.createElement("div");
     settings.className = "settings-dock";
-    settings.innerHTML = '<div class="theme-control"><span>页面配色 / THEME</span><div class="theme-options">' + Object.keys(themeNames).map(function (key) {
+    settings.innerHTML = '<div class="language-control"><span data-i18n data-i18n-hans="语言 / LANGUAGE" data-i18n-hant="語言 / LANGUAGE" data-i18n-en="LANGUAGE">语言 / LANGUAGE</span><div class="language-options">' +
+      '<button type="button" data-language-choice="zh-hans">简体</button><button type="button" data-language-choice="zh-hant">繁體</button><button type="button" data-language-choice="en">English</button></div></div>' +
+      '<div class="theme-control"><span data-i18n data-i18n-hans="页面配色 / THEME" data-i18n-hant="頁面配色 / THEME" data-i18n-en="THEME">页面配色 / THEME</span><div class="theme-options">' + Object.keys(themeNames).map(function (key) {
         var labels = key === "white" ? ["白", "白", "White"] : (key === "gray" ? ["灰", "灰", "Gray"] : ["黑", "黑", "Black"]);
-        return '<button type="button" data-theme-choice="' + key + '"><i></i><span>' + labels[0] + '</span></button>';
+        return '<button type="button" data-theme-choice="' + key + '"><i></i><span data-i18n data-i18n-hans="' + labels[0] + '" data-i18n-hant="' + labels[1] + '" data-i18n-en="' + labels[2] + '">' + labels[0] + '</span></button>';
       }).join("") + '</div></div>';
 
     var settingsContent = document.createElement("div");
@@ -262,14 +271,16 @@
         setSettingsCollapsed(!settings.classList.contains("settings-collapsed"));
         return;
       }
+      var language = event.target.closest("[data-language-choice]");
       var theme = event.target.closest("[data-theme-choice]");
+      if (language) applyLanguage(language.dataset.languageChoice);
       if (theme) applyTheme(theme.dataset.themeChoice);
     });
-    var savedTheme = "white", savedSettingsCollapsed = false;
+    var savedTheme = "white", savedLanguage = "zh-hans", savedSettingsCollapsed = false;
     try {
       var query = new URLSearchParams(location.search);
       savedTheme = query.get("theme") || localStorage.getItem("tjm-theme") || "white";
-      localStorage.removeItem("tjm-language-v2");
+      savedLanguage = query.get("lang") || localStorage.getItem("tjm-language-v2") || "zh-hans";
       savedSettingsCollapsed = localStorage.getItem("tjm-settings-dock") === "collapsed";
     } catch (error) { /* no-op */ }
 
@@ -282,14 +293,14 @@
       try { localStorage.setItem("tjm-settings-dock", collapsed ? "collapsed" : "open"); } catch (error) { /* no-op */ }
     }
 
-    applyTheme(savedTheme); applyLanguage();
+    applyTheme(savedTheme); applyLanguage(savedLanguage);
     setSettingsCollapsed(savedSettingsCollapsed);
 
     var observer = new MutationObserver(function (mutations) {
       mutations.forEach(function (mutation) { mutation.addedNodes.forEach(function (node) { translateTree(node, currentLanguage); }); });
     });
     observer.observe(document.body, { childList: true, subtree: true });
-    window.tjmLanguage = { apply: applyLanguage, current: function () { return "zh-hans"; } };
+    window.tjmLanguage = { apply: applyLanguage, current: function () { return currentLanguage; } };
     window.tjmTheme = { apply: applyTheme, current: function () { return currentTheme; } };
   }
 
@@ -299,7 +310,7 @@
       if (!anchor || !anchor.href || /^mailto:|^tel:/i.test(anchor.href)) return;
       try {
         var url = new URL(anchor.href, location.href);
-        url.searchParams.delete("lang");
+        url.searchParams.set("lang", currentLanguage);
         url.searchParams.set("theme", currentTheme);
         if (anchor.hasAttribute("data-main-return")) url.searchParams.set("from", "project");
         anchor.href = url.href;

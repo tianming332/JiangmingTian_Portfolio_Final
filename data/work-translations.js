@@ -572,7 +572,7 @@ window.PORTFOLIO_TRANSLATIONS = Object.freeze({
     "ai-video": {
       "zh-hans": "AI视频",
       "zh-hant": "AI视频",
-      "en": "AI视频"
+      "en": "AI Video"
     },
     "web-tool": {
       "zh-hans": "Web 工具",
