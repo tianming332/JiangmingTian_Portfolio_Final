@@ -178,12 +178,6 @@
   }
 
   function confirmSelection() {
-    if (selected.length !== 3) {
-      entering = false;
-      var language = currentLanguage();
-      document.getElementById("welcomeSelected").textContent = language === "en" ? ((3 - selected.length) + " more tags needed") : (language === "zh-hant" ? ("還需選擇 " + (3 - selected.length) + " 個標籤") : ("还需选择 " + (3 - selected.length) + " 个标签"));
-      return;
-    }
     if (window.portfolioFilter) window.portfolioFilter.applyTags(selected.slice());
     enterAllWorks();
   }

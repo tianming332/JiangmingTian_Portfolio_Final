@@ -198,7 +198,7 @@
       var hans = itemI18n["zh-hans"] || { title: item.title, description: item.description };
       var hant = itemI18n["zh-hant"] || hans;
       var en = itemI18n.en || hans;
-      var meta = kind === "video" ? asArray(item.keywords).join(" · ") : (item.year || "年度作品集");
+      var meta = kind === "video" ? asArray(item.keywords).join(" · ") : (kind === "workflow" ? (item.meta || "WORKFLOW") : (item.year || "年度作品集"));
       var aiFlag = kind === "video" ? '<div class="simple-flags"><span class="project-status project-ai">AI</span></div>' : "";
       return '<article class="col-xl-4 col-md-6 grid-item project-card-wrap">' +
         '<a class="project-card" href="' + escapeHTML(item.link || "#!") + '"' + (/^https?:/.test(item.link || "") ? ' target="_blank" rel="noopener"' : '') + '>' +
@@ -340,6 +340,7 @@
     renderProjects("appliedGrid", (window.WORKS || []).filter(function (item) { return ["launched", "implemented", "exhibited"].indexOf(item.status) !== -1; }), "暂时没有标记为已落地的项目。");
     renderSimpleCards("collectionsGrid", window.COLLECTIONS, "collection");
     renderSimpleCards("videosGrid", window.VIDEOS, "video");
+    renderSimpleCards("workflowsGrid", window.WORKFLOWS, "workflow");
     setupFilters();
     renderDetail();
   });

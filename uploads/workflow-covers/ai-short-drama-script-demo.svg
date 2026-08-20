@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img" aria-labelledby="title desc">
+  <title id="title">AI短剧脚本自动化演示封面</title>
+  <desc id="desc">浅灰背景上的自动化脚本流程界面示意图</desc>
+  <rect width="1600" height="1200" fill="#f3f2ee"/>
+  <g fill="none" stroke="#d7d4ce" stroke-width="2">
+    <path d="M0 240h1600M0 480h1600M0 720h1600M0 960h1600"/>
+    <path d="M320 0v1200M640 0v1200M960 0v1200M1280 0v1200"/>
+  </g>
+  <rect x="300" y="190" width="1000" height="820" rx="32" fill="#fff" stroke="#cbc7c0" stroke-width="2"/>
+  <text x="800" y="330" fill="#111112" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" text-anchor="middle">TJM</text>
+  <text x="800" y="455" fill="#111112" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="58" text-anchor="middle">AI短剧脚本自动化</text>
+  <text x="800" y="505" fill="#877c74" font-family="Arial, sans-serif" font-size="17" letter-spacing="8" text-anchor="middle">SCRIPT WORKFLOW · DEMO</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" text-anchor="middle">
+    <rect x="410" y="640" width="220" height="96" rx="20" fill="#f3f2ee" stroke="#cbc7c0"/>
+    <text x="520" y="698" fill="#111112" font-size="24">故事设定</text>
+    <path d="M630 688h115" stroke="#211912" stroke-width="3"/>
+    <path d="m730 674 18 14-18 14" fill="none" stroke="#211912" stroke-width="3"/>
+    <rect x="690" y="640" width="220" height="96" rx="20" fill="#211912"/>
+    <text x="800" y="698" fill="#fff" font-size="24">AI 结构化</text>
+    <path d="M910 688h115" stroke="#211912" stroke-width="3"/>
+    <path d="m1010 674 18 14-18 14" fill="none" stroke="#211912" stroke-width="3"/>
+    <rect x="970" y="640" width="220" height="96" rx="20" fill="#f3f2ee" stroke="#cbc7c0"/>
+    <text x="1080" y="698" fill="#111112" font-size="24">分集脚本</text>
+  </g>
+  <rect x="590" y="825" width="420" height="58" rx="29" fill="#eeeae4"/>
+  <text x="800" y="862" fill="#877c74" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" text-anchor="middle">需要 API 调用 · 暂只做演示</text>
+</svg>

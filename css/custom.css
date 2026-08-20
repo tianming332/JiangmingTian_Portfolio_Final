@@ -114,6 +114,9 @@ body[data-theme="black"] .welcome-network,body[data-theme="black"] .welcome-site
 @media(max-width:575px){.home-hero,.page-hero,.filter-section,.works-section,.about-grid{padding-left:20px;padding-right:20px}.home-hero h1{font-size:2.35rem}.filter-status{flex-wrap:wrap}.filter-status strong{margin-left:0}.project-arrow{opacity:1;transform:none}.admin-shell{padding:35px 16px}.project-root{padding:0 20px}.project-heading{display:block}.project-heading h2{margin-top:12px}.project-gallery{grid-template-columns:1fr}.gallery-item.gallery-wide{grid-column:auto}.project-next{grid-template-columns:1fr}.project-next a+ a{padding-left:0;text-align:left;border-left:0;border-top:1px solid var(--line)}}
 @media(max-width:575px){.project-tags-row{grid-template-columns:1fr auto}.tags-row-list{grid-column:1/-1}.tags-row-label small{display:none}}
 
+.profile-columns{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:991px){.profile-columns{grid-template-columns:1fr}}
+
 /* Image archive / gallery */
 .gallery-page { overflow-x:hidden; }
 .gallery-main { min-height:100vh; }
