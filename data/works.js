@@ -13,7 +13,7 @@ window.PORTFOLIO_META = {
     "information": "信息可视化",
     "ip": "IP 形象",
     "ai-image": "AI 图像",
-    "ai-video": "AI-Videos",
+    "ai-video": "AI视频",
     "web-tool": "Web 工具",
     "program": "程序",
     "report": "研究报告",
