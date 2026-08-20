@@ -10,7 +10,7 @@ a { color:inherit; }
 .brand strong { font-size:1.3rem; letter-spacing:.08em; }
 .brand small { margin-top:5px; color:var(--muted); font-size:.74rem; letter-spacing:.08em; }
 .nav-group { color:#999; font-size:.7rem; letter-spacing:.14em; margin:12px 0 9px; }
-.nav-group span { margin-left:8px; font-size:.58rem; }
+.nav-group > span:last-child { margin-left:8px; font-size:.58rem; }
 .sidebar-link { display:flex; justify-content:space-between; align-items:baseline; padding:9px 0; color:#555; text-decoration:none; border-bottom:1px solid transparent; }
 .sidebar-link small { font-size:.56rem; letter-spacing:.1em; color:#aaa; }
 .sidebar-link:hover,.sidebar-link.active { color:#000; border-bottom-color:#111; }
