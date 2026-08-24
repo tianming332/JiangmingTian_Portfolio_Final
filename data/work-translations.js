@@ -633,6 +633,11 @@ window.PORTFOLIO_TRANSLATIONS = Object.freeze({
       "zh-hans": "体验设计",
       "zh-hant": "體驗設計",
       "en": "Experience Design"
+    },
+    "experimental": {
+      "zh-hans": "实验作品",
+      "zh-hant": "實驗作品",
+      "en": "Experimental Works"
     }
   },
   "statuses": {

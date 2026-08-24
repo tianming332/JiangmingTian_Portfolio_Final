@@ -25,7 +25,8 @@ window.PORTFOLIO_META = {
     "ai-animation": "AI 动画",
     "motion": "动效",
     "vector": "矢量",
-    "experience": "体验设计"
+    "experience": "体验设计",
+    "experimental": "实验作品"
   },
   "statuses": {
     "concept": "概念项目",
