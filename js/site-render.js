@@ -54,6 +54,7 @@
     add("motion", keys.indexOf("ai-video") !== -1 || keys.indexOf("interaction") !== -1);
     add("vector", keys.indexOf("graphic") !== -1 || keys.indexOf("information") !== -1 || keys.indexOf("ip") !== -1);
     add("experience", keys.indexOf("uiux") !== -1 || keys.indexOf("interaction") !== -1 || keys.indexOf("installation") !== -1);
+    add("experimental", item.status === "concept" || item.status === "prototype");
     return keys;
   }
 

@@ -178,7 +178,8 @@
   }
 
   function confirmSelection() {
-    if (window.portfolioFilter) window.portfolioFilter.applyTags(selected.slice());
+    var tags = selected.length ? selected.slice() : ["experimental"];
+    if (window.portfolioFilter) window.portfolioFilter.applyTags(tags);
     enterAllWorks();
   }
 
