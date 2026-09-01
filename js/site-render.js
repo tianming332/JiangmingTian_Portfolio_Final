@@ -154,7 +154,8 @@
     var keys = expandedKeys(item);
     var filterDirections = directions.filter(function (key) { return ["ai", "visual", "interaction"].indexOf(key) !== -1; });
     var filterTypes = keys.filter(function (key) { return filterDirections.indexOf(key) === -1; });
-    var data = ' data-directions="' + escapeHTML(filterDirections.join(" ")) + '" data-types="' + escapeHTML(filterTypes.join(" ")) + '" data-order="' + Number(order || 0) + '"';
+    var displayPriority = keys.indexOf("experimental") !== -1 ? 2 : (keys.indexOf("applied") !== -1 ? -1 : 0);
+    var data = ' data-directions="' + escapeHTML(filterDirections.join(" ")) + '" data-types="' + escapeHTML(filterTypes.join(" ")) + '" data-order="' + Number(order || 0) + '" data-display-priority="' + displayPriority + '"';
     var projectLink = getProjectLink(item);
 
     return '<article class="col-xl-4 col-md-6 grid-item project-card-wrap"' + data + '>' +
@@ -233,7 +234,11 @@
         card.classList.toggle("filter-secondary", active.length > 0 && score === 0);
         if (score > 0) matched += 1;
       });
-      cards.sort(function (a, b) { return Number(b.dataset.matchScore) - Number(a.dataset.matchScore) || Number(a.dataset.order) - Number(b.dataset.order); }).forEach(function (card) { grid.appendChild(card); });
+      cards.sort(function (a, b) {
+        return Number(b.dataset.matchScore) - Number(a.dataset.matchScore) ||
+          Number(b.dataset.displayPriority) - Number(a.dataset.displayPriority) ||
+          Number(a.dataset.order) - Number(b.dataset.order);
+      }).forEach(function (card) { grid.appendChild(card); });
       var count = document.getElementById("resultCount");
       if (count) setI18nContent(count,
         active.length ? matched + " 个匹配项目优先" : "找到 " + cards.length + " 个项目",
