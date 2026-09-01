@@ -1,27 +1,27 @@
 // 工作流优化卡片数据
 window.WORKFLOWS = [
   {
-    title: "一键成册",
-    meta: "WORKFLOW · WEB TOOL",
-    description: "已发布，点击即可体验。",
+    title: "一键成册（AI版）",
+    meta: "WORKFLOW · AI LAYOUT",
+    description: "国际版，具备 AI 排版功能，中国地区需挂梯子体验。",
     i18n: {
-      "zh-hans": { title: "一键成册", description: "已发布，点击即可体验。" },
-      "zh-hant": { title: "一鍵成冊", description: "已發布，點擊即可體驗。" },
-      en: { title: "One-click Booklet", description: "Published. Click to try it now." }
+      "zh-hans": { title: "一键成册（AI版）", description: "国际版，具备 AI 排版功能，中国地区需挂梯子体验。" },
+      "zh-hant": { title: "一鍵成冊（AI版）", description: "國際版，具備 AI 排版功能，中國地區需掛梯子體驗。" },
+      en: { title: "One-click Booklet (AI Edition)", description: "International edition with AI-powered layout. A VPN is required in mainland China." }
     },
-    cover: "uploads/workflow-covers/one-click-booklet.png",
-    link: "https://tianming332.github.io/Tian-Ai-Create-a-booklet-with-one-click--v2/"
+    cover: "uploads/workflow-covers/one-click-booklet-ai-international.png",
+    link: "https://tjm-aitool-admin.jiangmingtian332.workers.dev/album/"
   },
   {
-    title: "AI短剧脚本自动化",
-    meta: "WORKFLOW · DEMO",
-    description: "需要 API 调用，暂只做演示。",
+    title: "自研生图Skill体验",
+    meta: "WORKFLOW · AI SKILL",
+    description: "中国地区需挂梯子体验。",
     i18n: {
-      "zh-hans": { title: "AI短剧脚本自动化", description: "需要 API 调用，暂只做演示。" },
-      "zh-hant": { title: "AI短劇腳本自動化", description: "需要 API 調用，暫只做演示。" },
-      en: { title: "AI Short-drama Script Automation", description: "API access is required; demo only for now." }
+      "zh-hans": { title: "自研生图Skill体验", description: "中国地区需挂梯子体验。" },
+      "zh-hant": { title: "自研生圖Skill體驗", description: "中國地區需掛梯子體驗。" },
+      en: { title: "In-house Image-generation Skill", description: "A VPN is required in mainland China." }
     },
-    cover: "uploads/workflow-covers/ai-short-drama-script-demo.svg",
-    link: "#!"
+    cover: "uploads/workflow-covers/in-house-image-generation-skill.png",
+    link: "https://tjm-aitool-admin.jiangmingtian332.workers.dev/ai-style/"
   }
 ];
