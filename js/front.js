@@ -323,6 +323,28 @@
     var page = document.querySelector(".page-holder");
     if (!sidebar || !page) return;
     var inner = sidebar.querySelector(".sidebar-inner");
+    if (!inner) return;
+    var pagePrefix = /\/works\//i.test(location.pathname) ? "../../" : "";
+
+    // Older work-detail pages use the original Bootstrap sidebar markup.
+    // Normalize them here so every page inherits one shared navigation system.
+    if (inner.querySelector(".sidebar-menu") && !inner.querySelector(".brand")) {
+      inner.innerHTML =
+        '<a class="brand px-4 pt-5 pb-4" href="' + pagePrefix + 'index.html#all-works"><span class="brand-logo">TJM</span><strong>天将明</strong><small>視覺設計 × AI 應用</small></a>' +
+        '<nav class="sidebar-menu-holder flex-grow-1 px-4" aria-label="主导航">' +
+          '<p class="nav-group">作品 <span>WORK</span></p>' +
+          '<a class="sidebar-link active" href="' + pagePrefix + 'index.html#all-works">所有作品 <small>ALL WORKS</small></a>' +
+          '<a class="sidebar-link" data-site-key="applied" href="https://tianming332.github.io/Applied-Brand-Desig_wed/">落地項目 <small>APPLIED SITE</small></a>' +
+          '<p class="nav-group mt-4">集合 <span>COLLECTIONS</span></p>' +
+          '<a class="sidebar-link" data-site-key="annual" href="' + pagePrefix + 'collections.html">年度作品集 <small>PORTFOLIOS</small></a>' +
+          '<a class="sidebar-link" data-gallery-nav href="' + pagePrefix + 'gallery.html">画廊 <small>GALLERY</small></a>' +
+          '<a class="sidebar-link" data-site-key="videos" href="' + pagePrefix + 'video.html"><span data-i18n data-i18n-hans="AI视频" data-i18n-hant="AI视频" data-i18n-en="AI Video">AI视频</span> <small>VIDEO ARCHIVE</small></a>' +
+          '<a class="sidebar-link" data-site-key="workflow" href="' + pagePrefix + 'workflow.html"><span data-i18n data-i18n-hans="工作流优化" data-i18n-hant="工作流優化" data-i18n-en="Workflow Optimization">工作流优化</span> <small>WORKFLOW</small></a>' +
+          '<p class="nav-group mt-4">信息 <span>INFO</span></p>' +
+          '<a class="sidebar-link" href="' + pagePrefix + 'text.html">關於我 <small>ABOUT</small></a>' +
+        '</nav>' +
+        '<div class="px-4 py-4 sidebar-note">VISUAL COMMUNICATION<br>ARTIFICIAL INTELLIGENCE</div>';
+    }
     if (!inner.querySelector(".sidebar-note")) {
       var note = document.createElement("div"); note.className = "px-4 py-4 sidebar-note";
       note.innerHTML = "VISUAL COMMUNICATION<br>ARTIFICIAL INTELLIGENCE"; inner.appendChild(note);
@@ -333,7 +355,7 @@
       if (collectionsLink) {
         var galleryLink = document.createElement("a");
         galleryLink.className = "sidebar-link" + (/gallery\.html$/i.test(location.pathname) ? " active" : "");
-        galleryLink.href = (window.TJM_SITES && window.TJM_SITES.gallery) || "gallery.html";
+        galleryLink.href = (window.TJM_SITES && window.TJM_SITES.gallery) || pagePrefix + "gallery.html";
         galleryLink.setAttribute("data-gallery-nav", "");
         galleryLink.innerHTML = '画廊 <small>GALLERY</small>';
         collectionsLink.insertAdjacentElement("afterend", galleryLink);

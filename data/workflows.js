@@ -1,6 +1,18 @@
 // 工作流优化卡片数据
 window.WORKFLOWS = [
   {
+    title: "全流程广告视频制作 Agent",
+    meta: "WORKFLOW · VIDEO AGENT",
+    description: "实际生成视频内容线上公开演示体验版，国内可访问。",
+    i18n: {
+      "zh-hans": { title: "全流程广告视频制作 Agent", description: "实际生成视频内容线上公开演示体验版，国内可访问。" },
+      "zh-hant": { title: "全流程廣告視頻製作 Agent", description: "實際生成視頻內容的線上公開演示體驗版，中國內地可直接訪問。" },
+      en: { title: "End-to-end Advertising Video Production Agent", description: "A public online demo that generates real video content and is directly accessible in mainland China." }
+    },
+    cover: "uploads/workflow-covers/full-process-ad-video-agent.png",
+    link: "https://tianming332.github.io/Tian-AI-Video-Production-Agent-V1/"
+  },
+  {
     title: "一键成册（国内版）",
     meta: "WORKFLOW · WEB TOOL",
     description: "国内版，无 AI 排版功能，中国地区可直接体验。",
