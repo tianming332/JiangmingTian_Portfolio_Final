@@ -319,6 +319,7 @@
   }
 
   function setupSidebar() {
+    if (window.TJMSharedSidebar && typeof window.TJMSharedSidebar.render === "function") window.TJMSharedSidebar.render();
     var sidebar = document.querySelector(".sidebar");
     var page = document.querySelector(".page-holder");
     if (!sidebar || !page) return;
