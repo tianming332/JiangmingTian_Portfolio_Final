@@ -397,24 +397,27 @@ window.WORKS = [
     "cover": "uploads/works-covers/K4.jpg"
   },
   {
-    "id": "portfolio-project-17",
-    "title": "作品 17（资料待补）",
-    "titleEn": "PORTFOLIO PROJECT 17",
-    "year": "待补充",
+    "id": "yanshi-agent-story",
+    "title": "YANSHI 广告短视频制作 Agent",
+    "titleEn": "YANSHI AI VIDEO PRODUCTION AGENT",
+    "year": "2026",
     "directions": [
-      "visual"
+      "ai",
+      "interaction"
     ],
     "types": [
-      "graphic"
+      "uiux",
+      "ai-image"
     ],
     "tags": [
-      "资料待补",
-      "独立详情页"
+      "AI Agent",
+      "视频制作",
+      "工作流设计"
     ],
-    "status": "concept",
-    "tools": "待補充 / TO BE ADDED",
-    "description": "第 17 个作品页已预留；补入真实标题、说明与图片后即可完整展示。",
-    "overview": "目前的网站资料只包含十六个可识别作品。此页依照十七张作品卡的拆分需求建立为明确的预留项，不虚构项目内容，日后可直接替换为真实作品。",
-    "cover": "uploads/works-covers/placeholder-work-17.svg"
+    "status": "prototype",
+    "tools": "LLM Agent / Image & Video Generation / FFmpeg",
+    "description": "以自然语言驱动广告短视频制作，并在关键节点等待确认、支持局部重跑与版本追踪。",
+    "overview": "YANSHI 将脚本、人物锚定、关键帧、视频生成、动态贴标和质量检查组织为一条可沟通的 Agent 工作流，让复杂的广告制作过程可见、可介入、可比较、可复盘。",
+    "cover": "uploads/works-covers/yanshi-agent-story.png"
   }
 ];

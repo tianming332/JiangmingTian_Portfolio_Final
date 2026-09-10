@@ -485,32 +485,35 @@ window.WORK_TRANSLATIONS = Object.freeze({
       ]
     }
   },
-  "portfolio-project-17": {
+  "yanshi-agent-story": {
     "zh-hans": {
-      "title": "作品 17（资料待补）",
-      "description": "第 17 个作品页已预留；补入真实标题、说明与图片后即可完整展示。",
-      "overview": "目前的网站资料只包含十六个可识别作品。此页依照十七张作品卡的拆分需求建立为明确的预留项，不虚构项目内容，日后可直接替换为真实作品。",
+      "title": "YANSHI 广告短视频制作 Agent",
+      "description": "以自然语言驱动广告短视频制作，并在关键节点等待确认、支持局部重跑与版本追踪。",
+      "overview": "YANSHI 将脚本、人物锚定、关键帧、视频生成、动态贴标和质量检查组织为一条可沟通的 Agent 工作流，让复杂的广告制作过程可见、可介入、可比较、可复盘。",
       "tags": [
-        "资料待补",
-        "独立详情页"
+        "AI Agent",
+        "视频制作",
+        "工作流设计"
       ]
     },
     "zh-hant": {
-      "title": "作品 17（資料待補）",
-      "description": "第 17 個作品頁已預留；補入真實標題、說明與圖片後即可完整展示。",
-      "overview": "目前的網站資料只包含十六個可識別作品。此頁依照十七張作品卡的拆分需求建立為明確的預留項，不虛構項目內容，日後可直接替換為真實作品。",
+      "title": "YANSHI 廣告短視頻製作 Agent",
+      "description": "以自然語言驅動廣告短視頻製作，並在關鍵節點等待確認、支援局部重跑與版本追蹤。",
+      "overview": "YANSHI 將腳本、人物錨定、關鍵幀、視頻生成、動態貼標和品質檢查組織為一條可溝通的 Agent 工作流，讓複雜的廣告製作過程可見、可介入、可比較、可復盤。",
       "tags": [
-        "資料待補",
-        "獨立詳情頁"
+        "AI Agent",
+        "視頻製作",
+        "工作流設計"
       ]
     },
     "en": {
-      "title": "Portfolio Project 17 (Content Pending)",
-      "description": "The seventeenth project page is reserved and ready for its final title, description, and images.",
-      "overview": "The available site data contains only sixteen identifiable projects. To meet the seventeen-card structure, this page is clearly marked as a reserved entry without invented project content and can later be replaced with the final work.",
+      "title": "YANSHI AI Video Production Agent",
+      "description": "A natural-language workflow for producing ad videos with approval gates, local retries, and traceable versions.",
+      "overview": "YANSHI organizes scripting, character anchors, keyframes, video generation, motion labeling, and quality checks into a conversational Agent workflow, making complex ad production visible, interruptible, comparable, and reviewable.",
       "tags": [
-        "Content Pending",
-        "Independent Detail Page"
+        "AI Agent",
+        "Video Production",
+        "Workflow Design"
       ]
     }
   }

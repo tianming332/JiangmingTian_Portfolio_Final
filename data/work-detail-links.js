@@ -18,7 +18,7 @@
     "wawa-k2": "TIAN-wawa-k2",
     "ceramic-information-k3": "TIAN-ceramic-information-k3",
     "bara-kei-k4": "TIAN-bara-kei-k4",
-    "portfolio-project-17": "TIAN-portfolio-project-17"
+    "yanshi-agent-story": "TIAN-yanshi-agent-story"
   };
   window.WORK_DETAIL_LINKS = Object.freeze(Object.keys(repositories).reduce(function (result, id) {
     var repository = repositories[id];
