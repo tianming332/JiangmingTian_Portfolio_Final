@@ -495,7 +495,8 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "overview": "YANSHI 将脚本、人物锚定、关键帧、视频生成、动态贴标和质量检查组织为一条可沟通的 Agent 工作流，让复杂的广告制作过程可见、可介入、可比较、可复盘。",
       "tags": [
         "AI Agent",
-        "视频制作",
+        "程序",
+        "AI视频",
         "工作流设计"
       ]
     },
@@ -505,7 +506,8 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "overview": "YANSHI 將腳本、人物錨定、關鍵幀、視頻生成、動態貼標和品質檢查組織為一條可溝通的 Agent 工作流，讓複雜的廣告製作過程可見、可介入、可比較、可復盤。",
       "tags": [
         "AI Agent",
-        "視頻製作",
+        "程式",
+        "AI視頻",
         "工作流設計"
       ]
     },
@@ -515,7 +517,8 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "overview": "YANSHI organizes scripting, character anchors, keyframes, video generation, motion labeling, and quality checks into a conversational Agent workflow, making complex ad production visible, interruptible, comparable, and reviewable.",
       "tags": [
         "AI Agent",
-        "Video Production",
+        "Program",
+        "AI Video",
         "Workflow Design"
       ]
     }

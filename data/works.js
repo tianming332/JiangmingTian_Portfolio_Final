@@ -416,7 +416,8 @@ window.WORKS = [
     ],
     "tags": [
       "AI Agent",
-      "视频制作",
+      "程序",
+      "AI视频",
       "工作流设计"
     ],
     "status": "prototype",
