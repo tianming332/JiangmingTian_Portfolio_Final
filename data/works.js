@@ -423,6 +423,6 @@ window.WORKS = [
     "tools": "LLM Agent / Image & Video Generation / FFmpeg",
     "description": "以自然语言驱动广告短视频制作，并在关键节点等待确认、支持局部重跑与版本追踪。",
     "overview": "YANSHI 将脚本、人物锚定、关键帧、视频生成、动态贴标和质量检查组织为一条可沟通的 Agent 工作流，让复杂的广告制作过程可见、可介入、可比较、可复盘。",
-    "cover": "uploads/works-covers/yanshi-agent-story.png"
+    "cover": "uploads/works-covers/yanshi-agent-story.png?v=20260910d"
   }
 ];
