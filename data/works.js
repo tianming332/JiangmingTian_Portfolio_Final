@@ -412,13 +412,17 @@ window.WORKS = [
     ],
     "types": [
       "uiux",
-      "ai-image"
+      "ai-image",
+      "ai-video",
+      "program",
+      "ai-animation"
     ],
     "tags": [
-      "AI Agent",
-      "程序",
       "AI视频",
-      "工作流设计"
+      "AI图片",
+      "程序",
+      "AI动画",
+      "UI设计"
     ],
     "status": "prototype",
     "tools": "LLM Agent / Image & Video Generation / FFmpeg",

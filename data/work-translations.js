@@ -494,10 +494,11 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "以自然语言驱动广告短视频制作，并在关键节点等待确认、支持局部重跑与版本追踪。",
       "overview": "YANSHI 将脚本、人物锚定、关键帧、视频生成、动态贴标和质量检查组织为一条可沟通的 Agent 工作流，让复杂的广告制作过程可见、可介入、可比较、可复盘。",
       "tags": [
-        "AI Agent",
-        "程序",
         "AI视频",
-        "工作流设计"
+        "AI图片",
+        "程序",
+        "AI动画",
+        "UI设计"
       ]
     },
     "zh-hant": {
@@ -505,10 +506,11 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "以自然語言驅動廣告短視頻製作，並在關鍵節點等待確認、支援局部重跑與版本追蹤。",
       "overview": "YANSHI 將腳本、人物錨定、關鍵幀、視頻生成、動態貼標和品質檢查組織為一條可溝通的 Agent 工作流，讓複雜的廣告製作過程可見、可介入、可比較、可復盤。",
       "tags": [
-        "AI Agent",
-        "程式",
         "AI視頻",
-        "工作流設計"
+        "AI圖片",
+        "程式",
+        "AI動畫",
+        "UI設計"
       ]
     },
     "en": {
@@ -516,10 +518,11 @@ window.WORK_TRANSLATIONS = Object.freeze({
       "description": "A natural-language workflow for producing ad videos with approval gates, local retries, and traceable versions.",
       "overview": "YANSHI organizes scripting, character anchors, keyframes, video generation, motion labeling, and quality checks into a conversational Agent workflow, making complex ad production visible, interruptible, comparable, and reviewable.",
       "tags": [
-        "AI Agent",
-        "Program",
         "AI Video",
-        "Workflow Design"
+        "AI Image",
+        "Program",
+        "AI Animation",
+        "UI Design"
       ]
     }
   }

@@ -170,7 +170,7 @@
         '</div>' +
         '<div class="project-copy project-tags-row">' +
           '<span class="tags-row-label"><span' + i18nAttributes("项目标签", "項目標籤", "Project Tags") + '>项目标签</span> <small>PROJECT TAGS</small></span>' +
-          '<div class="tags-row-list">' + asArray(item.tags).concat(labelKeys).slice(0, 4).map(function (tag, tagIndex) {
+          '<div class="tags-row-list">' + asArray(item.tags).concat(labelKeys).slice(0, 5).map(function (tag, tagIndex) {
             var isItemTag = tagIndex < asArray(item.tags).length;
             var hans = isItemTag ? (tagHans[tagIndex] || tag) : metaText("types", tag, "zh-hans");
             var hant = isItemTag ? (tagHant[tagIndex] || tag) : metaText("types", tag, "zh-hant");
