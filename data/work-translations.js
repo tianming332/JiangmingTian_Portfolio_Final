@@ -194,30 +194,33 @@ window.WORK_TRANSLATIONS = Object.freeze({
   },
   "applied-project-07": {
     "zh-hans": {
-      "title": "落地项目 07（资料待补）",
-      "description": "已预留为独立作品卡；补入真实标题、说明与图片后即可完整展示。",
-      "overview": "这是第七个落地项目的资料预留页。目前没有足够的标题、图片与项目说明，因此使用清楚标记的占位内容，不虚构项目信息。",
+      "title": "新-天象图库",
+      "description": "围绕陨石建立的三尺度交互视觉档案，从太阳系小天体、地球陨石记录进入矿物晶体。",
+      "overview": "项目将原有信息图与八晶体 STL 模型转化为可交互网页，在宇宙、地球与物质三个尺度间连续缩放，并以轨道、地理记录和实时晶体渲染建立统一的视觉叙事。",
       "tags": [
-        "落地项目",
-        "资料待补"
+        "数据可视化",
+        "交互设计",
+        "WebGPU"
       ]
     },
     "zh-hant": {
-      "title": "落地項目 07（資料待補）",
-      "description": "已預留為獨立作品卡；補入真實標題、說明與圖片後即可完整展示。",
-      "overview": "這是第七個落地項目的資料預留頁。目前沒有足夠的標題、圖片與項目說明，因此使用清楚標記的占位內容，不虛構項目信息。",
+      "title": "新・天象圖庫",
+      "description": "圍繞隕石建立的三尺度互動視覺檔案，從太陽系小天體、地球隕石記錄進入礦物晶體。",
+      "overview": "專案將原有資訊圖與八晶體 STL 模型轉化為互動網頁，在宇宙、地球與物質三個尺度間連續縮放，並以軌道、地理記錄和即時晶體渲染建立統一的視覺敘事。",
       "tags": [
-        "落地項目",
-        "資料待補"
+        "資料視覺化",
+        "互動設計",
+        "WebGPU"
       ]
     },
     "en": {
-      "title": "Implemented Project 07 (Content Pending)",
-      "description": "Reserved as an independent project card and ready for its final title, description, and images.",
-      "overview": "This page is reserved for the seventh implemented project. Because the final title, images, and project description are not yet available, clearly marked placeholder content is used without inventing project information.",
+      "title": "New Celestial Archive",
+      "description": "A three-scale interactive visual archive tracing meteorites from small bodies in the solar system and terrestrial records down to mineral crystals.",
+      "overview": "The project translates existing infographics and an eight-crystal STL model into an interactive website, moving continuously across cosmic, terrestrial, and material scales through orbital data, geographic records, and real-time crystal rendering.",
       "tags": [
-        "Applied",
-        "Content Pending"
+        "Data Visualization",
+        "Interaction Design",
+        "WebGPU"
       ]
     }
   },

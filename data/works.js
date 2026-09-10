@@ -178,24 +178,29 @@ window.WORKS = [
   },
   {
     "id": "applied-project-07",
-    "title": "落地项目 07（资料待补）",
-    "titleEn": "IMPLEMENTED PROJECT 07",
-    "year": "待补充",
+    "title": "新-天象图库",
+    "titleEn": "NEW CELESTIAL ARCHIVE",
+    "year": "2026",
     "directions": [
-      "visual"
+      "visual",
+      "interaction"
     ],
     "types": [
+      "information",
+      "web-tool",
+      "program",
       "applied"
     ],
     "tags": [
-      "落地项目",
-      "资料待补"
+      "数据可视化",
+      "交互设计",
+      "WebGPU"
     ],
     "status": "launched",
-    "tools": "待補充 / TO BE ADDED",
-    "description": "已预留为独立作品卡；补入真实标题、说明与图片后即可完整展示。",
-    "overview": "这是第七个落地项目的资料预留页。目前没有足够的标题、图片与项目说明，因此使用清楚标记的占位内容，不虚构项目信息。",
-    "cover": "uploads/works-covers/placeholder-applied-07.svg"
+    "tools": "WebGPU / JavaScript / TypeScript / WGSL / STL",
+    "description": "围绕陨石建立的三尺度交互视觉档案，从太阳系小天体、地球陨石记录进入矿物晶体。",
+    "overview": "项目将原有信息图与八晶体 STL 模型转化为可交互网页，在宇宙、地球与物质三个尺度间连续缩放，并以轨道、地理记录和实时晶体渲染建立统一的视觉叙事。",
+    "cover": "uploads/works-covers/new-celestial-archive.png"
   },
   {
     "id": "applied-project-08",
