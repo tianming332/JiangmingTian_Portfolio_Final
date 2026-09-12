@@ -14,6 +14,6 @@ window.VIDEOS = [
     description: "AI生成制作的视频内容。",
     i18n: { "zh-hans": { title: "AI动画 / 短剧", description: "AI生成制作的视频内容。" }, "ja": { title: "AIアニメーション/スキット", description: "AIが生成したビデオコンテンツ。" }, en: { title: "AI Animation / Short Drama", description: "Video content created with generative AI." } },
     cover: "uploads/video-covers/ai-animation-short-drama-cover.png",
-    link: "#!"
+    link: "https://tianming332.github.io/TJM-AI-short-video-playback-page/"
   }
 ];

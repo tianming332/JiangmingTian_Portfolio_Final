@@ -4,11 +4,10 @@ window.COLLECTIONS = [
   {
     title: "2025 Portfolio",
     year: "2025",
-    description: "正在筹备中，预计2026年末发布",
-    i18n: { "zh-hans": { title: "2025 Portfolio", description: "正在筹备中，预计2026年末发布" }, "ja": { title: "2025 Portfolio", description: "私たちはそれに取り組んでいます。" }, en: { title: "2025 Portfolio", description: "In preparation." } },
+    description: "已发布，点击查看完整作品集。",
+    i18n: { "zh-hans": { title: "2025 Portfolio", description: "已发布，点击查看完整作品集。" }, "ja": { title: "2025 Portfolio", description: "公開済みです。クリックして作品集全編をご覧ください。" }, en: { title: "2025 Portfolio", description: "Published. Open the complete portfolio." } },
     cover: "uploads/collection-covers/portfolio-2025-laptop-mockup.png",
-    // 2025 尚未发布：保留卡片，但不跳转到占位网址。
-    link: "#!"
+    link: "https://tianming332.github.io/TianJiangming-2025-portfolio/"
   },
   {
     title: "2024 Portfolio",
