@@ -8,7 +8,7 @@
   window.TJM_SITES = Object.freeze({
     main: "index.html#all-works",
     annual: "collections.html",
-    applied: "https://tianming332.github.io/Applied-Brand-Desig_wed/",
+    applied: "CommercialProjects.html",
     videos: "video.html",
     workflow: "workflow.html",
     gallery: "gallery.html"

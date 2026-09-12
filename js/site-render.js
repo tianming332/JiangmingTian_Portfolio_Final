@@ -19,7 +19,7 @@
   }
 
   function i18nAttributes(hans, hant, en) {
-    return ' data-i18n data-i18n-hans="' + escapeHTML(hans) + '" data-i18n-hant="' + escapeHTML(hant) + '" data-i18n-en="' + escapeHTML(en) + '"';
+    return ' data-i18n data-i18n-hans="' + escapeHTML(hans) + '" data-i18n-ja="' + escapeHTML(hant) + '" data-i18n-en="' + escapeHTML(en) + '"';
   }
 
   function workText(item, language, field) {
@@ -37,10 +37,10 @@
     if (!element) return;
     element.setAttribute("data-i18n", "");
     element.setAttribute("data-i18n-hans", hans);
-    element.setAttribute("data-i18n-hant", hant);
+    element.setAttribute("data-i18n-ja", hant);
     element.setAttribute("data-i18n-en", en);
     var language = window.tjmLanguage ? window.tjmLanguage.current() : "zh-hans";
-    element.textContent = language === "en" ? en : (language === "zh-hant" ? hant : hans);
+    element.textContent = language === "en" ? en : (language === "ja" ? hant : hans);
   }
 
   function expandedKeys(item) {
@@ -100,12 +100,12 @@
 
   var metaGroup = group === "direction" ? "directions" : "types";
   var hans = metaText(metaGroup, key, "zh-hans");
-  var hant = metaText(metaGroup, key, "zh-hant");
+  var hant = metaText(metaGroup, key, "ja");
   var en = metaText(metaGroup, key, "en");
 
   button.setAttribute("data-i18n", "");
   button.setAttribute("data-i18n-hans", hans);
-  button.setAttribute("data-i18n-hant", hant);
+  button.setAttribute("data-i18n-ja", hant);
   button.setAttribute("data-i18n-en", en);
   button.textContent = hans;
 
@@ -134,10 +134,10 @@
     var status = item.status || "concept";
     var labelKeys = types.slice(0, 2);
     var labelsHans = labelKeys.map(function (type) { return metaText("types", type, "zh-hans"); });
-    var labelsHant = labelKeys.map(function (type) { return metaText("types", type, "zh-hant"); });
+    var labelsHant = labelKeys.map(function (type) { return metaText("types", type, "ja"); });
     var labelsEn = labelKeys.map(function (type) { return metaText("types", type, "en"); });
     var titleHans = workText(item, "zh-hans", "title");
-    var titleHant = workText(item, "zh-hant", "title");
+    var titleHant = workText(item, "ja", "title");
     var titleEn = workText(item, "en", "title");
     var rawYear = String(item.year || "");
     var yearIsPending = /待[補补]充/.test(rawYear);
@@ -145,10 +145,10 @@
     var yearHant = yearIsPending ? "待補充" : rawYear;
     var yearEn = yearIsPending ? "TBD" : rawYear;
     var tagHans = workText(item, "zh-hans", "tags") || [];
-    var tagHant = workText(item, "zh-hant", "tags") || [];
+    var tagHant = workText(item, "ja", "tags") || [];
     var tagEn = workText(item, "en", "tags") || [];
     var statusBadge = ["launched", "implemented", "exhibited"].indexOf(status) !== -1
-      ? '<span class="project-status"' + i18nAttributes(metaText("statuses", status, "zh-hans"), metaText("statuses", status, "zh-hant"), metaText("statuses", status, "en")) + '>' + escapeHTML(metaText("statuses", status, "zh-hans")) + '</span>' : "";
+      ? '<span class="project-status"' + i18nAttributes(metaText("statuses", status, "zh-hans"), metaText("statuses", status, "ja"), metaText("statuses", status, "en")) + '>' + escapeHTML(metaText("statuses", status, "zh-hans")) + '</span>' : "";
     var aiBadge = isAIProject(item) ? '<span class="project-status project-ai">AI</span>' : "";
     var flags = statusBadge || aiBadge ? '<div class="project-flags' + (statusBadge && aiBadge ? ' project-flags--two' : '') + '">' + statusBadge + aiBadge + '</div>' : "";
     var keys = expandedKeys(item);
@@ -173,7 +173,7 @@
           '<div class="tags-row-list">' + asArray(item.tags).concat(labelKeys).slice(0, 5).map(function (tag, tagIndex) {
             var isItemTag = tagIndex < asArray(item.tags).length;
             var hans = isItemTag ? (tagHans[tagIndex] || tag) : metaText("types", tag, "zh-hans");
-            var hant = isItemTag ? (tagHant[tagIndex] || tag) : metaText("types", tag, "zh-hant");
+            var hant = isItemTag ? (tagHant[tagIndex] || tag) : metaText("types", tag, "ja");
             var en = isItemTag ? (tagEn[tagIndex] || tag) : metaText("types", tag, "en");
             return '<span' + i18nAttributes(hans, hant, en) + '>' + escapeHTML(hans) + '</span>';
           }).join("") + '</div>' +
@@ -198,9 +198,11 @@
     target.innerHTML = list.map(function (item) {
       var itemI18n = item.i18n || {};
       var hans = itemI18n["zh-hans"] || { title: item.title, description: item.description };
-      var hant = itemI18n["zh-hant"] || hans;
+      var hant = itemI18n["ja"] || hans;
       var en = itemI18n.en || hans;
-      var meta = kind === "video" ? asArray(item.keywords).join(" · ") : (kind === "workflow" ? (item.meta || "WORKFLOW") : (item.year || "年度作品集"));
+      var meta = kind === "video" ? asArray(item.keywords).join(" · ") :
+        (kind === "workflow" ? (item.meta || "WORKFLOW") :
+        (kind === "commercial" ? (item.meta || "BRAND / COMMERCIAL") : (item.year || "年度作品集")));
       var aiFlag = kind === "video" ? '<div class="simple-flags"><span class="project-status project-ai">AI</span></div>' : "";
       return '<article class="col-xl-4 col-md-6 grid-item project-card-wrap">' +
         '<a class="project-card" href="' + escapeHTML(item.link || "#!") + '"' + (/^https?:/.test(item.link || "") ? ' target="_blank" rel="noopener"' : '') + '>' +
@@ -248,8 +250,8 @@
       var summary = document.getElementById("filterSummary");
       if (summary) {
         var partsHans = [], partsHant = [], partsEn = [];
-        activeDirections.forEach(function (direction) { partsHans.push(metaText("directions", direction, "zh-hans")); partsHant.push(metaText("directions", direction, "zh-hant")); partsEn.push(metaText("directions", direction, "en")); });
-        activeTypes.forEach(function (type) { partsHans.push(metaText("types", type, "zh-hans")); partsHant.push(metaText("types", type, "zh-hant")); partsEn.push(metaText("types", type, "en")); });
+        activeDirections.forEach(function (direction) { partsHans.push(metaText("directions", direction, "zh-hans")); partsHant.push(metaText("directions", direction, "ja")); partsEn.push(metaText("directions", direction, "en")); });
+        activeTypes.forEach(function (type) { partsHans.push(metaText("types", type, "zh-hans")); partsHant.push(metaText("types", type, "ja")); partsEn.push(metaText("types", type, "en")); });
         setI18nContent(summary,
           partsHans.length ? "当前筛选：" + partsHans.join(" · ") : "当前显示：全部作品",
           partsHant.length ? "當前篩選：" + partsHant.join(" · ") : "當前顯示：全部作品",
@@ -317,10 +319,10 @@
     }
     var typeKeys = asArray(item.types);
     var typesHans = typeKeys.map(function (type) { return metaText("types", type, "zh-hans"); }).join(" · ");
-    var typesHant = typeKeys.map(function (type) { return metaText("types", type, "zh-hant"); }).join(" · ");
+    var typesHant = typeKeys.map(function (type) { return metaText("types", type, "ja"); }).join(" · ");
     var typesEn = typeKeys.map(function (type) { return metaText("types", type, "en"); }).join(" · ");
     var titleHans = workText(item, "zh-hans", "title");
-    var titleHant = workText(item, "zh-hant", "title");
+    var titleHant = workText(item, "ja", "title");
     var titleEn = workText(item, "en", "title");
     var rawYear = String(item.year || "");
     var yearIsPending = /待[補补]充/.test(rawYear);
@@ -328,7 +330,7 @@
     var yearHant = yearIsPending ? "待補充" : rawYear;
     var yearEn = yearIsPending ? "TBD" : rawYear;
     var descriptionHans = workText(item, "zh-hans", "description");
-    var descriptionHant = workText(item, "zh-hant", "description");
+    var descriptionHant = workText(item, "ja", "description");
     var descriptionEn = workText(item, "en", "description");
     target.innerHTML = '<header class="detail-hero"><p class="eyebrow"' + i18nAttributes(typesHans + " / " + yearHans, typesHant + " / " + yearHant, typesEn + " / " + yearEn) + '>' + escapeHTML(typesHans) + ' / ' + escapeHTML(yearHans) + '</p>' +
       '<h1' + i18nAttributes(titleHans, titleHant, titleEn) + '>' + escapeHTML(titleHans) + '</h1><p class="detail-en">' + escapeHTML(item.titleEn) + '</p>' +
@@ -344,6 +346,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     renderProjects("worksGrid", window.WORKS, "暂时没有作品。");
     renderProjects("appliedGrid", (window.WORKS || []).filter(function (item) { return ["launched", "implemented", "exhibited"].indexOf(item.status) !== -1; }), "暂时没有标记为已落地的项目。");
+    renderSimpleCards("appliedBrandGrid", window.APPLIEDBRAND, "commercial");
     renderSimpleCards("collectionsGrid", window.COLLECTIONS, "collection");
     renderSimpleCards("videosGrid", window.VIDEOS, "video");
     renderSimpleCards("workflowsGrid", window.WORKFLOWS, "workflow");

@@ -30,7 +30,7 @@
   function tagName(tag) {
     var record = tagNames[tag] || tag;
     if (typeof record === "string") return currentLanguage() === "zh-hans" ? toHans(record) : record;
-    return currentLanguage() === "en" ? (record.en || tag) : (currentLanguage() === "zh-hant" ? (record.hant || record.hans || tag) : (record.hans || tag));
+    return currentLanguage() === "en" ? (record.en || tag) : (currentLanguage() === "ja" ? (record.hant || record.hans || tag) : (record.hans || tag));
   }
   function localizedItem(item) {
     var language = currentLanguage();
@@ -38,7 +38,7 @@
       title: item.titleEn || "Gallery Image",
       description: item.descriptionEn || "A visual study from the portfolio archive."
     });
-    if (language === "zh-hant") return Object.assign({}, item, { title: item.title || "未命名影像", description: item.description || "作品集中的一段視覺記錄。" });
+    if (language === "ja") return Object.assign({}, item, { title: item.title || "未命名影像", description: item.description || "作品集中的一段視覺記錄。" });
     return Object.assign({}, item, { title: toHans(item.title || "未命名影像"), description: toHans(item.description || "作品集中的一段视觉记录。") });
   }
   function fallbackItems() {

@@ -10,7 +10,7 @@
     { key: "information", hans: "信息可视化", hant: "信息可視化", en: "INFORMATION", x: .70, y: .24 },
     { key: "ai", hans: "人工智能", hant: "人工智能", en: "AI", x: .79, y: .40 },
     { key: "ip", hans: "IP 形象", hant: "IP 形象", en: "CHARACTER", x: .91, y: .45 },
-    { key: "applied", hans: "落地项目", hant: "落地項目", en: "IMPLEMENTED", x: .84, y: .63 },
+    { key: "applied", hans: "商业项目", hant: "商業項目", en: "IMPLEMENTED", x: .84, y: .63 },
     { key: "installation", hans: "装置", hant: "裝置", en: "INSTALLATION", x: .66, y: .78 },
     { key: "visual", hans: "视觉", hant: "視覺", en: "VISUAL", x: .47, y: .73 },
     { key: "ai-image", hans: "AI 图像", hant: "AI 圖像", en: "GENERATIVE", x: .28, y: .81 },
@@ -41,15 +41,15 @@
       definitions.push({
         key: key,
         hans: translations && translations["zh-hans"] || base,
-        hant: translations && translations["zh-hant"] || base,
+        hant: translations && translations["ja"] || base,
         en: translations && translations.en || String(key).toUpperCase(),
         x: .5 + Math.cos(angle) * .38,
         y: .52 + Math.sin(angle) * .34
       });
     });
   }
-  function definitionLabel(definition) { var language = currentLanguage(); return language === "en" ? definition.en : (language === "zh-hant" ? definition.hant : definition.hans); }
-  function enteringText() { var language = currentLanguage(); return language === "en" ? "Selection complete. Entering…" : (language === "zh-hant" ? "選擇完成，正在進入" : "选择完成，正在进入"); }
+  function definitionLabel(definition) { var language = currentLanguage(); return language === "en" ? definition.en : (language === "ja" ? definition.hant : definition.hans); }
+  function enteringText() { var language = currentLanguage(); return language === "en" ? "Selection complete. Entering…" : (language === "ja" ? "選擇完成，正在進入" : "选择完成，正在进入"); }
 
   function expandedKeys(item) {
     var keys = (item.directions || []).concat(item.types || []);
@@ -80,7 +80,7 @@
     var language = currentLanguage();
     output.textContent = selected.length ? selected.map(function (key) {
       return definitionLabel(definitions.find(function (item) { return item.key === key; }));
-    }).join(" × ") + " (" + selected.length + "/3)" : (language === "en" ? "Select 3 tags (0/3)" : (language === "zh-hant" ? "請選擇 3 個標籤（0/3）" : "请选择 3 个标签（0/3）"));
+    }).join(" × ") + " (" + selected.length + "/3)" : (language === "en" ? "Select 3 tags (0/3)" : (language === "ja" ? "請選擇 3 個標籤（0/3）" : "请选择 3 个标签（0/3）"));
     document.getElementById("welcomeConfirm").classList.toggle("ready", selected.length === 3);
   }
 
@@ -148,7 +148,7 @@
       var button = document.createElement("button");
       button.type = "button"; button.className = "welcome-node";
       button.style.left = (definition.x * 100) + "%"; button.style.top = (definition.y * 100) + "%";
-      button.innerHTML = '<strong data-i18n data-i18n-hans="' + definition.hans + '" data-i18n-hant="' + definition.hant + '" data-i18n-en="' + definition.en + '">' + definition.hans + '</strong><small>' + definition.en + '</small>';
+      button.innerHTML = '<strong data-i18n data-i18n-hans="' + definition.hans + '" data-i18n-ja="' + definition.hant + '" data-i18n-en="' + definition.en + '">' + definition.hans + '</strong><small>' + definition.en + '</small>';
       button.setAttribute("aria-pressed", "false");
       var speed = .000003 + index % 5 * .00000045, angle = .55 + index * 1.71;
       var node = { key: definition.key, element: button, x: definition.x, y: definition.y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, fixed: false };

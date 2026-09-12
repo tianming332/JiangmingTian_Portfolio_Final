@@ -2,14 +2,14 @@
   "use strict";
 
   var themeNames = { white: "白", gray: "灰", black: "黑" };
-  var languageNames = { "zh-hans": "简体", "zh-hant": "繁體", en: "English" };
+  var languageNames = { "zh-hans": "中简", ja: "日本語", en: "English" };
   var originalTexts = new WeakMap();
   var originalAttributes = new WeakMap();
   var currentLanguage = "zh-hans";
   var currentTheme = "white";
 
   var english = {
-    "天将明": "Tian Jiangming", "所有作品": "All Works", "落地項目": "Applied Projects", "落地项目": "Applied Projects",
+    "天将明": "Tian Jiangming", "所有作品": "All Works", "商業項目": "Commercial Projects", "商业项目": "Commercial Projects",
     "年度作品集": "Annual Portfolios", "畫廊": "Gallery", "画廊": "Gallery", "AI视频": "AI Video", "關於我": "About", "关于我": "About",
     "作品": "Works", "集合": "Collections", "信息": "Info", "創作方向": "Creative Direction", "创作方向": "Creative Direction",
     "作品類型": "Work Type", "作品类型": "Work Type", "全部": "All", "AI 創作": "AI Creation", "AI 创作": "AI Creation",
@@ -40,7 +40,7 @@
     "這裡匯總已上線、已實施或可體驗的項目。每個項目同時作為獨立作品出現在首頁，並以「已落地」角標標註。": "A collection of launched, implemented, and experiential projects. Each project also appears independently on the homepage with a Launched label.",
     "這裡保存年度作品集、PDF 或獨立網頁。單項作品請從「所有作品」瀏覽。": "Annual portfolios, PDFs, and standalone sites are collected here. Browse individual projects through All Works.",
     "實景拍攝、AI 改造、生成式動畫與短片練習的專題集合。代表項目也可以作為單項作品進入首頁。": "A collection of live-action footage, AI transformations, generative animation, and short-film studies. Selected projects also appear individually on the homepage.",
-    "落地項目": "Applied", "品牌識別": "Brand Identity", "智慧社區": "Smart Community", "運動健康": "Sports & Wellness",
+    "商業項目": "Applied", "品牌識別": "Brand Identity", "智慧社區": "Smart Community", "運動健康": "Sports & Wellness",
     "生態檢測": "Ecological Detection", "工業科技": "Industrial Technology", "公共文旅": "Public Culture & Tourism", "餐飲品牌": "Food Brand",
     "資料待補": "Content Pending", "感官設計": "Sensory Design", "痛覺可視化": "Pain Visualization", "夢境拼圖": "Dream Puzzle",
     "數據敘事": "Data Narrative", "跨媒介": "Cross-media", "無障礙設計": "Accessibility Design", "觸覺交互": "Tactile Interaction",
@@ -77,7 +77,7 @@
     "概念項目": "Concept", "原型項目": "Prototype", "已實施": "Implemented", "已展出": "Exhibited",
     "視覺設計 × AI 應用": "VISUAL DESIGN × AI", "视觉设计 × AI 应用": "VISUAL DESIGN × AI",
     "© 天将明個人作品集": "© Tian Jiangming Portfolio", "© 天将明个人作品集": "© Tian Jiangming Portfolio",
-    "落地項目 / APPLIED": "APPLIED PROJECTS", "落地项目 / APPLIED": "APPLIED PROJECTS",
+    "商業項目 / APPLIED": "COMMERCIAL PROJECTS", "商业项目 / APPLIED": "COMMERCIAL PROJECTS",
     "關於 / ABOUT": "ABOUT", "关于 / ABOUT": "ABOUT",
     "AI视频 / VIDEO ARCHIVE": "AI VIDEO ARCHIVE",
     "本頁匯總實景拍攝、AI 改造、生成式動畫與短片練習；點擊下方卡片後，才會進入獨立的 AI视频影像站。": "This page brings together live-action footage, AI transformations, generative animation, and short-film studies. Open the card below to enter the standalone AI Video archive.",
@@ -105,7 +105,7 @@
   var titleEnglish = {
     "杭州鄰芯": "Hangzhou Linxin", "南山運動生活館": "Nanshan Sports & Wellness", "蒂克森": "Detection Ecology",
     "纜之源": "Lanyuan Cable", "和美天一": "He Mei Tian Yi", "閆博文山野菜雜麵條": "Yanbowen Noodles",
-    "落地項目 07（資料待補）": "Implemented Project 07", "落地項目 08（資料待補）": "Implemented Project 08",
+    "商業項目 07（資料待補）": "Implemented Project 07", "商業項目 08（資料待補）": "Implemented Project 08",
     "偏頭痛可視化": "Migraine Visualization", "夢可視化": "Dream Visualization", "隕石的信息可視化": "Meteorite Information",
     "視覺障礙觸摸識別裝置": "Tactile Accessibility Device", "ERYU 智能陪伴產品": "ERYU Smart Companion",
     "瓦瓦": "WAWA", "陶瓷器發展信息圖表": "Ceramic History Infographic", "《薔薇刑》重排": "Barakei Editorial Redesign"
@@ -170,9 +170,9 @@
 
   function translateI18nElement(element, language) {
     if (!element || element.nodeType !== 1 || !element.hasAttribute("data-i18n")) return;
-    var suffix = language === "zh-hans" ? "hans" : (language === "zh-hant" ? "hant" : "en");
+    var suffix = language === "zh-hans" ? "hans" : (language === "ja" ? "ja" : "en");
     var value = element.getAttribute("data-i18n-" + suffix);
-    if (value != null) element.textContent = language === "zh-hant" ? traditionalize(value) : value;
+    if (value != null) element.textContent = language === "ja" ? traditionalize(value) : value;
   }
 
   function translateI18nElements(root, language) {
@@ -216,10 +216,10 @@
 
   function applyLanguage(language) {
     currentLanguage = languageNames[language] ? language : "zh-hans";
-    document.documentElement.lang = currentLanguage === "en" ? "en" : (currentLanguage === "zh-hans" ? "zh-CN" : "zh-Hant");
+    document.documentElement.lang = currentLanguage === "en" ? "en" : (currentLanguage === "zh-hans" ? "zh-CN" : "ja");
     document.body.dataset.language = currentLanguage;
     translateTree(document.body, currentLanguage);
-    var titleSuffix = currentLanguage === "zh-hans" ? "hans" : (currentLanguage === "zh-hant" ? "hant" : "en");
+    var titleSuffix = currentLanguage === "zh-hans" ? "hans" : (currentLanguage === "ja" ? "ja" : "en");
     var pageTitle = document.body.getAttribute("data-title-" + titleSuffix);
     if (pageTitle) document.title = pageTitle;
     document.querySelectorAll("[data-language-choice]").forEach(function (button) {
@@ -244,11 +244,11 @@
   function setupSettings() {
     var settings = document.createElement("div");
     settings.className = "settings-dock";
-    settings.innerHTML = '<div class="language-control"><span data-i18n data-i18n-hans="语言 / LANGUAGE" data-i18n-hant="語言 / LANGUAGE" data-i18n-en="LANGUAGE">语言 / LANGUAGE</span><div class="language-options">' +
-      '<button type="button" data-language-choice="zh-hans">简体</button><button type="button" data-language-choice="zh-hant">繁體</button><button type="button" data-language-choice="en">English</button></div></div>' +
-      '<div class="theme-control"><span data-i18n data-i18n-hans="页面配色 / THEME" data-i18n-hant="頁面配色 / THEME" data-i18n-en="THEME">页面配色 / THEME</span><div class="theme-options">' + Object.keys(themeNames).map(function (key) {
+    settings.innerHTML = '<div class="language-control"><span data-i18n data-i18n-hans="语言 / LANGUAGE" data-i18n-ja="語言 / LANGUAGE" data-i18n-en="LANGUAGE">语言 / LANGUAGE</span><div class="language-options">' +
+      '<button type="button" data-language-choice="zh-hans">中简</button><button type="button" data-language-choice="ja">日本語</button><button type="button" data-language-choice="en">English</button></div></div>' +
+      '<div class="theme-control"><span data-i18n data-i18n-hans="页面配色 / THEME" data-i18n-ja="頁面配色 / THEME" data-i18n-en="THEME">页面配色 / THEME</span><div class="theme-options">' + Object.keys(themeNames).map(function (key) {
         var labels = key === "white" ? ["白", "白", "White"] : (key === "gray" ? ["灰", "灰", "Gray"] : ["黑", "黑", "Black"]);
-        return '<button type="button" data-theme-choice="' + key + '"><i></i><span data-i18n data-i18n-hans="' + labels[0] + '" data-i18n-hant="' + labels[1] + '" data-i18n-en="' + labels[2] + '">' + labels[0] + '</span></button>';
+        return '<button type="button" data-theme-choice="' + key + '"><i></i><span data-i18n data-i18n-hans="' + labels[0] + '" data-i18n-ja="' + labels[1] + '" data-i18n-en="' + labels[2] + '">' + labels[0] + '</span></button>';
       }).join("") + '</div></div>';
 
     var settingsContent = document.createElement("div");
@@ -335,12 +335,12 @@
         '<nav class="sidebar-menu-holder flex-grow-1 px-4" aria-label="主导航">' +
           '<p class="nav-group">作品 <span>WORK</span></p>' +
           '<a class="sidebar-link active" href="' + pagePrefix + 'index.html#all-works">所有作品 <small>ALL WORKS</small></a>' +
-          '<a class="sidebar-link" data-site-key="applied" href="https://tianming332.github.io/Applied-Brand-Desig_wed/">落地項目 <small>APPLIED SITE</small></a>' +
+          '<a class="sidebar-link" data-site-key="applied" href="CommercialProjects.html">商業項目 <small>COMMERCIAL PROJECTS</small></a>' +
           '<p class="nav-group mt-4">集合 <span>COLLECTIONS</span></p>' +
           '<a class="sidebar-link" data-site-key="annual" href="' + pagePrefix + 'collections.html">年度作品集 <small>PORTFOLIOS</small></a>' +
           '<a class="sidebar-link" data-gallery-nav href="' + pagePrefix + 'gallery.html">画廊 <small>GALLERY</small></a>' +
-          '<a class="sidebar-link" data-site-key="videos" href="' + pagePrefix + 'video.html"><span data-i18n data-i18n-hans="AI视频" data-i18n-hant="AI视频" data-i18n-en="AI Video">AI视频</span> <small>VIDEO ARCHIVE</small></a>' +
-          '<a class="sidebar-link" data-site-key="workflow" href="' + pagePrefix + 'workflow.html"><span data-i18n data-i18n-hans="工作流优化" data-i18n-hant="工作流優化" data-i18n-en="Workflow Optimization">工作流优化</span> <small>WORKFLOW</small></a>' +
+          '<a class="sidebar-link" data-site-key="videos" href="' + pagePrefix + 'video.html"><span data-i18n data-i18n-hans="AI视频" data-i18n-ja="AI视频" data-i18n-en="AI Video">AI视频</span> <small>VIDEO ARCHIVE</small></a>' +
+          '<a class="sidebar-link" data-site-key="workflow" href="' + pagePrefix + 'workflow.html"><span data-i18n data-i18n-hans="工作流优化" data-i18n-ja="工作流優化" data-i18n-en="Workflow Optimization">工作流优化</span> <small>WORKFLOW</small></a>' +
           '<p class="nav-group mt-4">信息 <span>INFO</span></p>' +
           '<a class="sidebar-link" href="' + pagePrefix + 'text.html">關於我 <small>ABOUT</small></a>' +
         '</nav>' +

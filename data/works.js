@@ -18,7 +18,7 @@ window.PORTFOLIO_META = {
     "program": "程序",
     "report": "研究报告",
     "editorial": "书籍版式",
-    "applied": "落地项目",
+    "applied": "商业项目",
     "album": "画册",
     "graphic-design": "图形设计",
     "photography": "摄影",
@@ -51,7 +51,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "落地项目",
+      "商业项目",
       "品牌识别",
       "智慧社区"
     ],
@@ -74,7 +74,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "落地项目",
+      "商业项目",
       "品牌识别",
       "运动健康"
     ],
@@ -97,7 +97,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "落地项目",
+      "商业项目",
       "品牌识别",
       "生态检测"
     ],
@@ -120,7 +120,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "落地项目",
+      "商业项目",
       "品牌识别",
       "工业科技"
     ],
@@ -143,7 +143,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "落地项目",
+      "商业项目",
       "品牌识别",
       "公共文旅"
     ],
@@ -166,7 +166,7 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "落地项目",
+      "商业项目",
       "品牌识别",
       "餐饮品牌"
     ],
@@ -188,15 +188,14 @@ window.WORKS = [
     "types": [
       "information",
       "web-tool",
-      "program",
-      "applied"
+      "program"
     ],
     "tags": [
       "数据可视化",
       "交互设计",
       "WebGPU"
     ],
-    "status": "launched",
+    "status": "completed",
     "tools": "WebGPU / JavaScript / TypeScript / WGSL / STL",
     "description": "围绕陨石建立的三尺度交互视觉档案，从太阳系小天体、地球陨石记录进入矿物晶体。",
     "overview": "项目将原有信息图与八晶体 STL 模型转化为可交互网页，在宇宙、地球与物质三个尺度间连续缩放，并以轨道、地理记录和实时晶体渲染建立统一的视觉叙事。",
@@ -204,7 +203,7 @@ window.WORKS = [
   },
   {
     "id": "applied-project-08",
-    "title": "落地项目 08（资料待补）",
+    "title": "商业项目 08（资料待补）",
     "titleEn": "IMPLEMENTED PROJECT 08",
     "year": "待补充",
     "directions": [
@@ -214,13 +213,13 @@ window.WORKS = [
       "applied"
     ],
     "tags": [
-      "落地项目",
+      "商业项目",
       "资料待补"
     ],
     "status": "launched",
     "tools": "待補充 / TO BE ADDED",
     "description": "已预留为独立作品卡；补入真实标题、说明与图片后即可完整展示。",
-    "overview": "这是第八个落地项目的资料预留页。目前没有足够的标题、图片与项目说明，因此使用清楚标记的占位内容，不虚构项目信息。",
+    "overview": "这是第八个商业项目的资料预留页。目前没有足够的标题、图片与项目说明，因此使用清楚标记的占位内容，不虚构项目信息。",
     "cover": "uploads/works-covers/placeholder-applied-08.svg",
     "featured": false
   },

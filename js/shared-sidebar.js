@@ -25,7 +25,7 @@
     if (/collections\.html$/.test(path)) return "annual";
     if (/gallery\.html$/.test(path)) return "gallery";
     if (/text\.html$/.test(path)) return "about";
-    if (/applied\.html$/.test(path)) return "applied";
+    if (/(?:commercialprojects|applied)\.html$/.test(path)) return "applied";
     return "all-works";
   }
 
@@ -59,12 +59,12 @@
       '<nav class="sidebar-menu-holder flex-grow-1 px-4" aria-label="主导航">' +
         '<p class="nav-group">作品 <span>WORK</span></p>' +
         '<a class="' + linkClass("all-works", active) + '" href="' + allWorks + '" data-preserve-preferences' + returnAttrs + '>所有作品 <small>ALL WORKS</small></a>' +
-        '<a class="' + linkClass("applied", active) + '" data-site-key="applied" href="https://tianming332.github.io/Applied-Brand-Desig_wed/" data-preserve-preferences>落地項目 <small>APPLIED SITE</small></a>' +
+        '<a class="' + linkClass("applied", active) + '" data-site-key="applied" href="' + siteHref("CommercialProjects.html") + '" data-preserve-preferences>商業項目 <small>COMMERCIAL PROJECTS</small></a>' +
         '<p class="nav-group mt-4">集合 <span>COLLECTIONS</span></p>' +
         '<a class="' + linkClass("annual", active) + '" data-site-key="annual" href="' + siteHref("collections.html") + '" data-preserve-preferences>年度作品集 <small>PORTFOLIOS</small></a>' +
         '<a class="' + linkClass("gallery", active) + '" data-gallery-nav href="' + siteHref("gallery.html") + '" data-preserve-preferences>画廊 <small>GALLERY</small></a>' +
-        '<a class="' + linkClass("videos", active) + '" data-site-key="videos" href="' + siteHref("video.html") + '" data-preserve-preferences><span data-i18n data-i18n-hans="AI视频" data-i18n-hant="AI视频" data-i18n-en="AI Video">AI视频</span> <small>VIDEO ARCHIVE</small></a>' +
-        '<a class="' + linkClass("workflow", active) + '" data-site-key="workflow" href="' + siteHref("workflow.html") + '" data-preserve-preferences><span data-i18n data-i18n-hans="工作流优化" data-i18n-hant="工作流優化" data-i18n-en="Workflow Optimization">工作流优化</span> <small>WORKFLOW</small></a>' +
+        '<a class="' + linkClass("videos", active) + '" data-site-key="videos" href="' + siteHref("video.html") + '" data-preserve-preferences><span data-i18n data-i18n-hans="AI视频" data-i18n-ja="AI视频" data-i18n-en="AI Video">AI视频</span> <small>VIDEO ARCHIVE</small></a>' +
+        '<a class="' + linkClass("workflow", active) + '" data-site-key="workflow" href="' + siteHref("workflow.html") + '" data-preserve-preferences><span data-i18n data-i18n-hans="工作流优化" data-i18n-ja="工作流優化" data-i18n-en="Workflow Optimization">工作流优化</span> <small>WORKFLOW</small></a>' +
         '<p class="nav-group mt-4">信息 <span>INFO</span></p>' +
         '<a class="' + linkClass("about", active) + '" href="' + siteHref("text.html") + '" data-preserve-preferences>關於我 <small>ABOUT</small></a>' +
       '</nav>' +
