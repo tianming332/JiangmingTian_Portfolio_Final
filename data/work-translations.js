@@ -226,30 +226,39 @@ window.WORK_TRANSLATIONS = Object.freeze({
   },
   "applied-project-08": {
     "zh-hans": {
-      "title": "商业项目 08（资料待补）",
-      "description": "已预留为独立作品卡；补入真实标题、说明与图片后即可完整展示。",
-      "overview": "这是第八个商业项目的资料预留页。目前没有足够的标题、图片与项目说明，因此使用清楚标记的占位内容，不虚构项目信息。",
+      "title": "一键成册",
+      "description": "把散落的照片与文案，转化为可继续编辑、可审阅、可直接输出的完整画册。",
+      "overview": "一键成册是一款本地优先的画册编排工具，覆盖素材导入、自动编排、逐页编辑、导出预检与印刷级 PDF 生成，在减少重复劳动的同时保留设计师对每一页的最终控制。",
       "tags": [
-        "商业项目",
-        "资料待补"
+        "AI",
+        "程序",
+        "Web 工具",
+        "摄影",
+        "书籍版式"
       ]
     },
     "ja": {
-      "title": "商業プロジェクト08 （データは完了する必要があります）",
-      "description": "個別のワークカードとして予約されています。真のタイトル、説明、画像が付いています。",
-      "overview": "8回目の出張予約ページです。タイトル、画像、プロジェクトの説明が不足しているため、架空のプロジェクト情報ではなく、明確にタグ付けされたプレースホルダーを使用します。",
+      "title": "ワンクリック製本",
+      "description": "散在する写真と文章を、編集・確認・直接出力できる一冊の写真集へ変換します。",
+      "overview": "ワンクリック製本は、素材の読み込み、自動レイアウト、ページ編集、書き出し前チェック、印刷用 PDF の生成までを一つにつなぐローカルファーストの編集ツールです。反復作業を減らしながら、各ページの最終判断をデザイナーに残します。",
       "tags": [
-        "商業用アイテム",
-        "追加するデータ"
+        "AI",
+        "プログラム",
+        "ウェブツール",
+        "写真",
+        "エディトリアルデザイン"
       ]
     },
     "en": {
-      "title": "Implemented Project 08 (Content Pending)",
-      "description": "Reserved as an independent project card and ready for its final title, description, and images.",
-      "overview": "This page is reserved for the eighth implemented project. Because the final title, images, and project description are not yet available, clearly marked placeholder content is used without inventing project information.",
+      "title": "AutoBook",
+      "description": "Turn scattered photos and copy into a complete album ready to edit, review, and export.",
+      "overview": "AutoBook is a local-first album layout tool spanning material import, automatic layout, page-by-page editing, export preflight, and print-ready PDF generation. It reduces repetitive production work while keeping final control of every page with the designer.",
       "tags": [
-        "Applied",
-        "Content Pending"
+        "AI",
+        "Program",
+        "Web Tool",
+        "Photography",
+        "Editorial Design"
       ]
     }
   },

@@ -203,24 +203,30 @@ window.WORKS = [
   },
   {
     "id": "applied-project-08",
-    "title": "商业项目 08（资料待补）",
-    "titleEn": "IMPLEMENTED PROJECT 08",
-    "year": "待补充",
+    "title": "一键成册",
+    "titleEn": "AUTOBOOK",
+    "year": "2026",
     "directions": [
-      "visual"
+      "ai"
     ],
     "types": [
-      "applied"
+      "program",
+      "web-tool",
+      "photography",
+      "editorial"
     ],
     "tags": [
-      "商业项目",
-      "资料待补"
+      "AI",
+      "程序",
+      "Web 工具",
+      "摄影",
+      "书籍版式"
     ],
-    "status": "launched",
-    "tools": "待補充 / TO BE ADDED",
-    "description": "已预留为独立作品卡；补入真实标题、说明与图片后即可完整展示。",
-    "overview": "这是第八个商业项目的资料预留页。目前没有足够的标题、图片与项目说明，因此使用清楚标记的占位内容，不虚构项目信息。",
-    "cover": "uploads/works-covers/placeholder-applied-08.svg",
+    "status": "implemented",
+    "tools": "React / TypeScript / Vite / pdf-lib",
+    "description": "把散落的照片与文案，转化为可继续编辑、可审阅、可直接输出的完整画册。",
+    "overview": "一键成册是一款本地优先的画册编排工具，覆盖素材导入、自动编排、逐页编辑、导出预检与印刷级 PDF 生成，在减少重复劳动的同时保留设计师对每一页的最终控制。",
+    "cover": "uploads/works-covers/autobook-cover.png",
     "featured": false
   },
   {

@@ -9,7 +9,7 @@
     "hemei-tianyi": "TIAN-hemei-tianyi",
     "yanbowen-noodles": "TIAN-yanbowen-noodles",
     "applied-project-07": "TIAN-NEW_CELESTIAL_ARCHIVE-DETAIL",
-    "applied-project-08": "TIAN-applied-project-08",
+    "applied-project-08": "TIAN-AutoBook",
     "migraine-visual-a1": "TIAN-migraine-visual-a1",
     "dream-visual-c1": "TIAN-dream-visual-c1",
     "meteorite-information-b1": "TIAN-meteorite-information-b1",
