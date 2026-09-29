@@ -239,6 +239,7 @@
       button.classList.toggle("active", active); button.setAttribute("aria-pressed", active ? "true" : "false");
     });
     try { localStorage.setItem("tjm-theme", next); } catch (error) { /* no-op */ }
+    document.dispatchEvent(new CustomEvent("tjm:themechange", { detail: { theme:next } }));
   }
 
   function setupSettings() {
@@ -286,6 +287,7 @@
 
     function setSettingsCollapsed(collapsed) {
       settings.classList.toggle("settings-collapsed", collapsed);
+      settingsContent.inert = collapsed;
       settingsToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
       settingsToggle.setAttribute("aria-label", collapsed ? "展开右上角设置" : "收起右上角设置");
       settingsToggle.querySelector("[aria-hidden]").textContent = collapsed ? "<" : ">";
@@ -381,19 +383,29 @@
       var mobileOpen = sidebar.classList.contains("active");
       var collapsed = document.body.classList.contains("sidebar-collapsed");
       expand.classList.toggle("visible", innerWidth <= 991 ? !mobileOpen : collapsed);
+      sidebar.inert = document.body.classList.contains("welcome-open") || (innerWidth <= 991 ? !mobileOpen : collapsed);
+      expand.setAttribute("aria-expanded", String(innerWidth <= 991 ? mobileOpen : !collapsed));
     }
     collapse.addEventListener("click", function () {
       if (innerWidth <= 991) sidebar.classList.remove("active");
       else { document.body.classList.add("sidebar-collapsed"); try { localStorage.setItem("tjm-sidebar", "collapsed"); } catch (error) { /* no-op */ } }
       updateToggle();
+      expand.focus({ preventScroll:true });
     });
     expand.addEventListener("click", function () {
       if (innerWidth <= 991) sidebar.classList.add("active");
       else { document.body.classList.remove("sidebar-collapsed"); try { localStorage.setItem("tjm-sidebar", "open"); } catch (error) { /* no-op */ } }
       updateToggle();
+      if (innerWidth <= 991) collapse.focus({ preventScroll:true });
     });
     var toggler = document.querySelector(".navbar-toggler");
     if (toggler) toggler.addEventListener("click", function () { sidebar.classList.toggle("active"); updateToggle(); });
+    sidebar.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && innerWidth <= 991) {
+        sidebar.classList.remove("active"); updateToggle(); expand.focus({ preventScroll:true });
+      }
+    });
+    document.addEventListener("tjm:welcomeclosed", updateToggle);
     document.addEventListener("click", function (event) {
       var anchor = event.target.closest('a[href*="index.html#all-works"]');
       if (!anchor || document.body.classList.contains("welcome-open")) return;

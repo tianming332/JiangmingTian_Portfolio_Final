@@ -82,6 +82,7 @@
       return definitionLabel(definitions.find(function (item) { return item.key === key; }));
     }).join(" × ") + " (" + selected.length + "/3)" : (language === "en" ? "Select 3 tags (0/3)" : (language === "ja" ? "請選擇 3 個標籤（0/3）" : "请选择 3 个标签（0/3）"));
     document.getElementById("welcomeConfirm").classList.toggle("ready", selected.length === 3);
+    if (reducedMotion && context) drawLines();
   }
 
   function toggle(key) {
@@ -101,6 +102,7 @@
     var dpr = Math.min(devicePixelRatio || 1, 2), rect = canvas.getBoundingClientRect();
     canvas.width = Math.round(rect.width * dpr); canvas.height = Math.round(rect.height * dpr);
     context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (reducedMotion && nodes.length) drawLines();
   }
 
   function updateMotion(delta) {
@@ -136,8 +138,11 @@
   }
 
   function animate(time) {
+    frame = 0;
+    if (document.hidden || !document.body.classList.contains("welcome-open")) return;
     var delta = Math.min(32, time - (lastTime || time)); lastTime = time;
-    updateMotion(delta); drawLines(); frame = requestAnimationFrame(animate);
+    updateMotion(delta); drawLines();
+    if (!reducedMotion) frame = requestAnimationFrame(animate);
   }
 
   function build() {
@@ -170,10 +175,12 @@
   function enterAllWorks() {
     var welcome = document.getElementById("welcomeNetwork");
     welcome.classList.add("leaving"); document.body.classList.remove("welcome-open");
-    history.replaceState(null, "", "index.html#all-works");
+    var nextURL = new URL(location.href); nextURL.hash = "all-works"; nextURL.searchParams.delete("from");
+    history.replaceState(null, "", nextURL);
     setTimeout(function () {
       welcome.hidden = true; cancelAnimationFrame(frame);
       document.getElementById("all-works").scrollIntoView({ behavior: "auto" });
+      document.dispatchEvent(new CustomEvent("tjm:welcomeclosed"));
     }, 560);
   }
 
@@ -195,6 +202,7 @@
     if (skipWelcome) {
       welcome.hidden = true; document.body.classList.remove("welcome-open");
       if (fromProject && history.replaceState) { try { history.replaceState(null, "", location.pathname + (location.hash || "#all-works")); } catch (error) { /* file preview may block URL cleanup */ } }
+      document.dispatchEvent(new CustomEvent("tjm:welcomeclosed"));
       return;
     }
     build();
@@ -202,6 +210,17 @@
     document.getElementById("welcomeConfirm").addEventListener("click", confirmSelection);
     var worksLink = document.querySelector('.welcome-sitebar a[href$="#all-works"]');
     if (worksLink) worksLink.addEventListener("click", function (event) { event.preventDefault(); enterAllWorks(); });
+  });
+  document.addEventListener("visibilitychange", function () {
+    if (!context) return;
+    cancelAnimationFrame(frame); frame = 0; lastTime = 0;
+    if (!document.hidden && document.body.classList.contains("welcome-open")) frame = requestAnimationFrame(animate);
+  });
+  matchMedia("(prefers-reduced-motion: reduce)").addEventListener("change", function (event) {
+    reducedMotion = event.matches;
+    if (!context) return;
+    cancelAnimationFrame(frame); frame = 0;
+    if (document.body.classList.contains("welcome-open")) frame = requestAnimationFrame(animate);
   });
   document.addEventListener("tjm:languagechange", function () { if (nodes.length) updateSelected(); });
 }());

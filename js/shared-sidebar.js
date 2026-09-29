@@ -5,6 +5,19 @@
   var siteRoot = sourceScript && sourceScript.src
     ? new URL("../", sourceScript.src)
     : new URL("./", location.href);
+  // Standalone detail sites carry the exact canonical component as a local file.
+  // data-tjm-center identifies its original center, not a second implementation.
+  if (sourceScript && sourceScript.dataset.tjmCenter) {
+    siteRoot = new URL(sourceScript.dataset.tjmCenter, location.href);
+    var localMarker = "/JiangmingTian_Portfolio_Detail_Pages/";
+    var localIndex = location.pathname.indexOf(localMarker);
+    if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) && localIndex !== -1) {
+      siteRoot = new URL(location.pathname.slice(0, localIndex) + "/JiangmingTian_Portfolio_Final/", location.origin);
+      document.querySelectorAll('a[href^="' + sourceScript.dataset.tjmCenter + '"]').forEach(function (link) {
+        link.href = new URL(link.href.slice(sourceScript.dataset.tjmCenter.length), siteRoot).href;
+      });
+    }
+  }
   var styleId = "tjm-shared-sidebar-style";
 
   function siteHref(path) {
@@ -38,7 +51,9 @@
     var link = document.createElement("link");
     link.id = styleId;
     link.rel = "stylesheet";
-    link.href = siteHref("css/shared-sidebar.css");
+    link.href = sourceScript && sourceScript.dataset.tjmStyle
+      ? new URL(sourceScript.dataset.tjmStyle, sourceScript.src).href
+      : siteHref("css/shared-sidebar.css");
     document.head.appendChild(link);
   }
 

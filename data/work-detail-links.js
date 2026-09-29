@@ -23,15 +23,23 @@
   window.WORK_DETAIL_LINKS = Object.freeze(Object.keys(repositories).reduce(function (result, id) {
     var repository = repositories[id];
     var live = "https://tianming332.github.io/" + repository + "/";
+    var local = live;
+    if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {
+      var path = location.pathname;
+      var marker = path.indexOf("/JiangmingTian_Portfolio_Final/");
+      var details = path.indexOf("/JiangmingTian_Portfolio_Detail_Pages/");
+      var base = marker !== -1 ? path.slice(0, marker) : details !== -1 ? path.slice(0, details) : null;
+      if (base !== null) local = location.origin + base + "/JiangmingTian_Portfolio_Detail_Pages/" + repository + "/";
+    }
     result[id] = Object.freeze({
-      local: live,
+      local: local,
       live: live
     });
     return result;
   }, {}));
   window.resolveWorkDetailLink = function (id) {
     var record = window.WORK_DETAIL_LINKS[id];
-    if (record) return record.live;
+    if (record) return record.local;
     return "https://tianming332.github.io/JiangmingTian_Portfolio_Final/#all-works";
   };
 }());

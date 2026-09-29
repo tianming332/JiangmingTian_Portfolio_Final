@@ -544,3 +544,8 @@ body[data-theme="black"] .sidebar-link:focus-visible {
 }
 body[data-theme="black"] .sidebar-link:hover small,
 body[data-theme="black"] .sidebar-link:focus-visible small { color:#fff; }
+
+/* The mobile menu opener belongs to the header, not beneath the settings dock. */
+@media(max-width:991px) {
+  .sidebar-expand { top:12px; left:18px; }
+}

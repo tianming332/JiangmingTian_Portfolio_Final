@@ -159,7 +159,7 @@
     var projectLink = getProjectLink(item);
 
     return '<article class="col-xl-4 col-md-6 grid-item project-card-wrap"' + data + '>' +
-      '<a class="project-card" href="' + escapeHTML(projectLink) + '" data-project-id="' + escapeHTML(item.id) + '">' +
+      '<a class="project-card" href="' + escapeHTML(projectLink) + '" data-preserve-preferences data-project-id="' + escapeHTML(item.id) + '">' +
         '<div class="project-media">' +
           '<img class="project-cover" src="' + escapeHTML(item.cover) + '" alt="' + escapeHTML(titleHans) + '" loading="lazy">' +
           '<div class="project-glass">' + flags +
@@ -218,11 +218,35 @@
     var panel = document.getElementById("workFilters");
     if (!grid || !panel) return;
     ensureFilterCoverage(panel);
+    var typeOptions = panel.querySelector('[data-group="type"]').parentElement;
+    typeOptions.id = "workTypeOptions";
+    typeOptions.classList.add("tjm-types-compact");
+    var typeToggle = document.createElement("button");
+    typeToggle.type = "button"; typeToggle.className = "tjm-type-toggle";
+    typeToggle.setAttribute("aria-controls", "workTypeOptions");
+    typeToggle.setAttribute("aria-expanded", "false");
+    function typeToggleLabel() {
+      var expanded = !typeOptions.classList.contains("tjm-types-compact");
+      typeToggle.setAttribute("aria-expanded", String(expanded));
+      setI18nContent(typeToggle, expanded ? "收起类型 −" : "更多类型 +", expanded ? "種類を閉じる −" : "すべての種類 +", expanded ? "Fewer types −" : "More types +");
+    }
+    typeToggle.addEventListener("click", function () {
+      typeOptions.classList.toggle("tjm-types-compact"); typeToggleLabel();
+    });
+    typeOptions.insertAdjacentElement("afterend", typeToggle);
+    typeToggleLabel();
     var activeDirections = [];
     var activeTypes = [];
+    var hasUpdated = false;
 
     function update() {
       var cards = Array.prototype.slice.call(grid.querySelectorAll(".project-card-wrap"));
+      var first = new Map();
+      var shouldAnimate = hasUpdated && !matchMedia("(prefers-reduced-motion: reduce)").matches && !document.body.classList.contains("welcome-open");
+      if (shouldAnimate) cards.forEach(function (card) {
+        first.set(card, card.getBoundingClientRect());
+        if (card._reorderAnimation) card._reorderAnimation.cancel();
+      });
       var active = activeDirections.concat(activeTypes);
       var matched = 0;
       cards.forEach(function (card) {
@@ -241,6 +265,19 @@
           Number(b.dataset.displayPriority) - Number(a.dataset.displayPriority) ||
           Number(a.dataset.order) - Number(b.dataset.order);
       }).forEach(function (card) { grid.appendChild(card); });
+      // FLIP preserves visual continuity while the selected works change priority.
+      if (shouldAnimate) cards.forEach(function (card) {
+        var before = first.get(card), after = card.getBoundingClientRect();
+        if (!before || !card.animate || (after.bottom < 0 && before.bottom < 0) || (after.top > innerHeight && before.top > innerHeight)) return;
+        var dx = before.left - after.left, dy = before.top - after.top;
+        if (Math.abs(dx) + Math.abs(dy) < 2) return;
+        card._reorderAnimation = card.animate([
+          { transform:"translate(" + dx + "px," + dy + "px)" }, { transform:"translate(0,0)" }
+        ], { duration:560, easing:"cubic-bezier(.16,1,.3,1)" });
+      });
+      panel.querySelectorAll("[data-filter]").forEach(function (button) {
+        button.setAttribute("aria-pressed", String(button.classList.contains("active")));
+      });
       var count = document.getElementById("resultCount");
       if (count) setI18nContent(count,
         active.length ? matched + " 个匹配项目优先" : "找到 " + cards.length + " 个项目",
@@ -258,8 +295,16 @@
           partsEn.length ? "Current filters: " + partsEn.join(" · ") : "Showing: All Works"
         );
       }
+      document.dispatchEvent(new CustomEvent("tjm:filterchange", { detail:{ matched:matched, total:cards.length } }));
+      hasUpdated = true;
     }
 
+    var statusRegion = panel.querySelector(".filter-status");
+    if (statusRegion) {
+      statusRegion.setAttribute("role", "status");
+      statusRegion.setAttribute("aria-live", "polite");
+      statusRegion.setAttribute("aria-atomic", "true");
+    }
     window.portfolioFilter = {
       applyTags: function (tags) {
         var list = Array.isArray(tags) ? tags : [];
