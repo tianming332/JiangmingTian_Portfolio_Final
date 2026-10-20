@@ -34,7 +34,7 @@ window.WORKFLOWS = [
       en: { title: "One-click Booklet (AI Edition)", description: "International edition with AI-powered layout. A VPN is required in mainland China." }
     },
     cover: "uploads/workflow-covers/one-click-booklet-ai-international.png",
-    link: "https://tjm-aitool-admin.jiangmingtian332.workers.dev/album/"
+    link: "https://tjm-book.jiangmingtian332.workers.dev/album/"
   },
   {
     title: "自研生图Skill体验",
@@ -46,6 +46,6 @@ window.WORKFLOWS = [
       en: { title: "In-house Image-generation Skill", description: "A VPN is required in mainland China." }
     },
     cover: "uploads/workflow-covers/in-house-image-generation-skill.png",
-    link: "https://tjm-aitool-admin.jiangmingtian332.workers.dev/ai-style/"
+    link: "https://tjm-style.jiangmingtian332.workers.dev/ai-style/"
   }
 ];
