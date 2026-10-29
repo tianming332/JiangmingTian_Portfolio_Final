@@ -337,7 +337,7 @@
         '<nav class="sidebar-menu-holder flex-grow-1 px-4" aria-label="主导航">' +
           '<p class="nav-group">作品 <span>WORK</span></p>' +
           '<a class="sidebar-link active" href="' + pagePrefix + 'index.html#all-works">所有作品 <small>ALL WORKS</small></a>' +
-          '<a class="sidebar-link" data-site-key="workflow" href="' + pagePrefix + 'workflow.html"><span data-i18n data-i18n-hans="Vibe Coding 项目" data-i18n-ja="Vibe Coding プロジェクト" data-i18n-en="Vibe Coding Projects">Vibe Coding 项目</span> <small>VIBE CODING</small></a>' +
+          '<a class="sidebar-link" data-site-key="workflow" href="' + pagePrefix + 'workflow.html"><span data-i18n data-i18n-hans="Vibe Coding" data-i18n-ja="Vibe Coding" data-i18n-en="Vibe Coding">Vibe Coding</span> <small>VIBE CODING</small></a>' +
           '<a class="sidebar-link" data-site-key="applied" href="CommercialProjects.html">商業項目 <small>COMMERCIAL PROJECTS</small></a>' +
           '<p class="nav-group mt-4">集合 <span>COLLECTIONS</span></p>' +
           '<a class="sidebar-link" data-site-key="annual" href="' + pagePrefix + 'collections.html">年度作品集 <small>PORTFOLIOS</small></a>' +

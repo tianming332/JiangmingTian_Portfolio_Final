@@ -1,4 +1,4 @@
-// Vibe Coding 项目卡片数据（页面 workflow.html）
+// Vibe Coding卡片数据（页面 workflow.html）
 window.WORKFLOWS = [
   {
     title: "全流程广告视频制作 Agent",
@@ -70,6 +70,18 @@ window.WORKFLOWS = [
       en: { title: "TJM Online Image Editor (AI Edition)", description: "An editor with a built-in Design Agent that analyzes the brief before producing the design, combining AI generation with manual refinement. A VPN is required in mainland China." }
     },
     cover: "uploads/workflow-covers/tjm-design-studio-ai.png?v=20261029",
-    link: "https://tjm-studio.jiangmingtian332.workers.dev/studio/"
+    link: "https://tjm-aitool-admin.jiangmingtian332.workers.dev/studio/"
+  },
+  {
+    title: "版式实验室",
+    meta: "VIBE CODING · TYPE LAYOUT",
+    description: "从文案出发探索版式，按内容匹配布局，联动调整字体与网格，在浏览器中完成排版实验与预览。",
+    i18n: {
+      "zh-hans": { title: "版式实验室", description: "从文案出发探索版式，按内容匹配布局，联动调整字体与网格，在浏览器中完成排版实验与预览。" },
+      "ja": { title: "レイアウトラボ", description: "テキストを起点にレイアウトを探り、内容に合う構成を選択。書体とグリッドを調整し、ブラウザ上で組版を試しながらプレビューできます。" },
+      en: { title: "Layout Lab", description: "Explore layouts starting with your copy. Match compositions to content, refine type and grids, and preview typographic experiments in the browser." }
+    },
+    cover: "uploads/workflow-covers/type-layout-lab.png?v=20261030",
+    link: "https://tjm-layout.jiangmingtian332.workers.dev/layout/"
   }
 ];
