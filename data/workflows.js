@@ -83,5 +83,53 @@ window.WORKFLOWS = [
     },
     cover: "uploads/workflow-covers/type-layout-lab.png?v=20261030",
     link: "https://tjm-layout.jiangmingtian332.workers.dev/layout/"
+  },
+  {
+    title: "字体工作室",
+    meta: "VIBE CODING · FONT STUDIO",
+    description: "从可商用的开源底字出发设计中文字体：调整笔画参数、编写部件规则、质检与试排，导出 OTF；中国大陆需借助代理访问。",
+    i18n: {
+      "zh-hans": { title: "字体工作室", description: "从可商用的开源底字出发设计中文字体：调整笔画参数、编写部件规则、质检与试排，导出 OTF；中国大陆需借助代理访问。" },
+      "ja": { title: "フォントスタジオ", description: "商用利用できるオープンソースのベース書体から中国語フォントを設計。画のパラメータ調整、部品ルール、品質チェックと試し組みを経て OTF を書き出します。中国本土では VPN が必要です。" },
+      en: { title: "Font Studio", description: "Design Chinese typefaces from commercially usable open-source base fonts: tune stroke parameters, write component rules, run QA and test settings, then export OTF. A VPN is required in mainland China." }
+    },
+    cover: "uploads/workflow-covers/tjm-font-studio.svg?v=20261102",
+    link: "https://tjm-font.jiangmingtian332.workers.dev/font/"
+  },
+  {
+    title: "规范制图编辑器",
+    meta: "VIBE CODING · CONSTRUCTION STUDIO",
+    description: "用圆和直线绘制标志的规范制图，生成辅助线与标注，导出 SVG / PNG；中国大陆需借助代理访问。",
+    i18n: {
+      "zh-hans": { title: "规范制图编辑器", description: "用圆和直线绘制标志的规范制图，生成辅助线与标注，导出 SVG / PNG；中国大陆需借助代理访问。" },
+      "ja": { title: "コンストラクションスタジオ", description: "円と直線でロゴの作図を行い、補助線と注釈を作成して SVG / PNG で書き出します。中国本土では VPN が必要です。" },
+      en: { title: "Construction Studio", description: "Build logo construction drawings from circles and lines, add guides and annotations, and export SVG / PNG. A VPN is required in mainland China." }
+    },
+    cover: "uploads/workflow-covers/tjm-construction-studio.svg?v=20261102",
+    link: "https://tjm-aitool-admin.jiangmingtian332.workers.dev/construct/"
+  },
+  {
+    title: "相纸工作室",
+    meta: "VIBE CODING · PHOTO FRAME",
+    description: "给照片加相纸边框、拍摄信息与签名，套用滤镜并预览 3D 相纸效果；中国大陆需借助代理访问。",
+    i18n: {
+      "zh-hans": { title: "相纸工作室", description: "给照片加相纸边框、拍摄信息与签名，套用滤镜并预览 3D 相纸效果；中国大陆需借助代理访问。" },
+      "ja": { title: "フォトフレームスタジオ", description: "写真に印画紙風のフレーム、撮影情報、サインを加え、フィルターを適用して 3D でプレビューできます。中国本土では VPN が必要です。" },
+      en: { title: "Photo Frame Studio", description: "Add print-style frames, shot details and signatures to photos, apply filters and preview them in 3D. A VPN is required in mainland China." }
+    },
+    cover: "uploads/workflow-covers/tjm-photo-frame-studio.svg?v=20261102",
+    link: "https://tjm-aitool-admin.jiangmingtian332.workers.dev/photo-frame/"
+  },
+  {
+    title: "简历与岗位助手",
+    meta: "VIBE CODING · OFFICE TOOL",
+    description: "办公类在线工具：按目标岗位整理和改写简历；中国大陆需借助代理访问。",
+    i18n: {
+      "zh-hans": { title: "简历与岗位助手", description: "办公类在线工具：按目标岗位整理和改写简历；中国大陆需借助代理访问。" },
+      "ja": { title: "履歴書・求人アシスタント", description: "オフィス系オンラインツール。応募する職種に合わせて履歴書を整理・書き換えます。中国本土では VPN が必要です。" },
+      en: { title: "Resume & Job Assistant", description: "An office tool that organizes and rewrites your resume for a target role. A VPN is required in mainland China." }
+    },
+    cover: "uploads/workflow-covers/tjm-resume-studio.svg?v=20261102",
+    link: "https://tjm-aitool-admin.jiangmingtian332.workers.dev/resume/"
   }
 ];

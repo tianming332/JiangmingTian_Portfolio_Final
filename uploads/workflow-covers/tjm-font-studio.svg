@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img" aria-labelledby="title">
+  <title id="title">字体工作室（封面待替换）</title>
+  <rect width="1600" height="1200" fill="#f3f2ee"/>
+  <g fill="none" stroke="#d7d4ce" stroke-width="2">
+    <path d="M0 240h1600M0 480h1600M0 720h1600M0 960h1600"/>
+    <path d="M320 0v1200M640 0v1200M960 0v1200M1280 0v1200"/>
+  </g>
+  <rect x="300" y="390" width="1000" height="420" rx="32" fill="#fff" stroke="#cbc7c0" stroke-width="2"/>
+  <text x="800" y="590" fill="#111112" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="72" font-weight="700" text-anchor="middle">字体工作室</text>
+  <text x="800" y="680" fill="#77736d" font-family="Arial, sans-serif" font-size="34" letter-spacing="6" text-anchor="middle">TJM FONT STUDIO</text>
+</svg>
