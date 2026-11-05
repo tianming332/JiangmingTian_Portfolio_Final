@@ -3,47 +3,107 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="TJM 独立构建的在线工具：图像、字体、排版、影像与简历。浏览应用、预览界面并直接打开体验。">
   <title>Vibe Coding | 天将明作品集</title>
+  <link rel="icon" href="uploads/vibe-coding/icons/favicon.png">
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.default.css">
-  <link rel="stylesheet" href="css/custom.css?v=20260929-ui8">
-  <link rel="shortcut icon" href="img/favicon.png">
-  <link rel="stylesheet" href="css/portfolio-motion.css?v=20260929-ui8">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/portfolio-motion.css">
+  <link rel="stylesheet" href="css/vibe-coding.css?v=20261104-vibe23">
 </head>
-<body data-title-hans="Vibe Coding | 天将明作品集" data-title-ja="Vibe Coding | 天将明ポートフォリオ" data-title-en="Vibe Coding | Tian Jiangming Portfolio">
-  <aside class="sidebar">
-    <div class="sidebar-inner d-flex flex-column">
-      <a class="brand px-4 pt-5 pb-4" href="index.html#all-works"><span class="brand-logo">TJM</span><strong>天将明</strong><small>視覺設計 × AI 應用</small></a>
-      <nav class="sidebar-menu-holder flex-grow-1 px-4" aria-label="主导航">
-        <p class="nav-group">作品 <span>WORK</span></p>
-        <a class="sidebar-link" href="index.html#all-works">所有作品 <small>ALL WORKS</small></a>
-        <a class="sidebar-link active" data-site-key="workflow" href="workflow.html"><span data-i18n data-i18n-hans="Vibe Coding" data-i18n-ja="Vibe Coding" data-i18n-en="Vibe Coding">Vibe Coding</span> <small>VIBE CODING</small></a>
-        <a class="sidebar-link" data-site-key="applied" href="CommercialProjects.html">商業項目 <small>COMMERCIAL PROJECTS</small></a>
-        <p class="nav-group mt-4">集合 <span>COLLECTIONS</span></p>
-        <a class="sidebar-link" data-site-key="annual" href="collections.html">年度作品集 <small>PORTFOLIOS</small></a>
-        <a class="sidebar-link" data-site-key="videos" href="video.html"><span data-i18n data-i18n-hans="AI视频" data-i18n-ja="AIビデオ" data-i18n-en="AI Video">AI视频</span> <small>VIDEO ARCHIVE</small></a>
-        <p class="nav-group mt-4">信息 <span>INFO</span></p>
-        <a class="sidebar-link" href="text.html">關於我 <small>ABOUT</small></a>
-      </nav>
-      <div class="px-4 py-4 sidebar-note">VISUAL COMMUNICATION<br>ARTIFICIAL INTELLIGENCE</div>
+<body data-sidebar-active="workflow" data-theme="white" data-title-hans="Vibe Coding | 天将明作品集" data-title-ja="Vibe Coding | 天将明ポートフォリオ" data-title-en="Vibe Coding | Tian Jiangming Portfolio">
+  <aside class="sidebar"><div class="sidebar-inner"></div></aside>
+  <main class="page-holder" id="lab-main">
+    <header class="mobile-header">
+      <button class="navbar-toggler" type="button" aria-label="打开菜单">菜单 / MENU</button>
+      <a href="index.html#all-works">TJM</a>
+    </header>
+    <div class="lab-page">
+      <div class="lab-topline">
+        <span class="lab-wordmark">TJM <span>/</span> DIGITAL PLAYGROUND</span>
+        <span class="lab-demo-label" data-copy="collectionCount">11 个在线工具</span>
+      </div>
+      <section class="lab-hero" aria-labelledby="lab-title">
+        <div class="lab-intro">
+          <div class="lab-eyebrow"><span class="lab-live-dot" aria-hidden="true"></span><span>INDEPENDENTLY BUILT / VIBE CODING</span></div>
+          <h1 id="lab-title"><span data-copy="heroFirst">把想法，</span><span class="lab-title-soft" data-copy="heroSecond">变成工具。</span></h1>
+          <p class="lab-lead" data-copy="heroLead">从字体、图形到照片与简历，让创作的下一步，更近一点。</p>
+          <div class="lab-view-switch" role="group" aria-label="展示方式">
+            <button type="button" data-view="fan" aria-pressed="true"><span class="lab-switch-symbol" aria-hidden="true">▱</span><span data-copy="fan">卡片展台</span></button>
+            <button type="button" data-view="icons" aria-pressed="false"><span class="lab-switch-symbol" aria-hidden="true">▦</span><span data-copy="icons">图标陈列</span></button>
+          </div>
+        </div>
+        <div id="lab-stage" class="lab-stage" data-view="fan" role="group" aria-label="精选应用展台">
+          <div class="lab-stage-halo" aria-hidden="true"></div>
+          <div class="lab-stage-grid" aria-hidden="true"></div>
+          <div id="lab-fan" class="lab-fan"></div>
+          <div id="lab-icon-field" class="lab-icon-field" hidden></div>
+          <div class="lab-stage-baseline" aria-hidden="true"><span>DESIGNED TO CREATE</span><span>TJM / 2026</span></div>
+        </div>
+        <div class="lab-spotlight">
+          <div class="lab-spotlight-identity" aria-live="polite" aria-atomic="true">
+            <span class="lab-spotlight-index" id="lab-selected-number">01 / 05</span>
+            <div><h2 id="lab-selected-title"></h2><p id="lab-selected-line"></p></div>
+          </div>
+          <div class="lab-spotlight-actions">
+            <div class="lab-step-controls">
+              <button type="button" class="lab-round-button" id="lab-prev" aria-label="上一个应用">←</button>
+              <button type="button" class="lab-round-button" id="lab-next" aria-label="下一个应用">→</button>
+            </div>
+            <button type="button" class="lab-button lab-button-quiet" id="lab-preview-selected"><span data-copy="preview">界面预览</span></button>
+            <a class="lab-button lab-button-primary" id="lab-open-selected" target="_blank" rel="noopener noreferrer"><span data-copy="open">打开应用</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+      <section id="lab-catalog" class="lab-catalog" aria-labelledby="lab-catalog-title">
+        <header class="lab-catalog-heading">
+          <div><p class="lab-eyebrow">THE COLLECTION</p><h2 id="lab-catalog-title" data-copy="catalog">我的工具架</h2></div>
+          <p data-copy="catalogLead">设计出发，代码实现。每一个都可以打开试用。</p>
+        </header>
+        <div class="lab-catalog-toolbar">
+          <div class="lab-filters" role="group" aria-label="应用分类">
+            <button type="button" data-filter="all" aria-pressed="true"><span data-copy="all">全部</span><span class="lab-filter-count">11</span></button>
+            <button type="button" data-filter="design" aria-pressed="false" data-copy="design">图像与图形</button>
+            <button type="button" data-filter="type" aria-pressed="false" data-copy="type">字体与排版</button>
+            <button type="button" data-filter="media" aria-pressed="false" data-copy="media">影像</button>
+            <button type="button" data-filter="office" aria-pressed="false" data-copy="office">办公</button>
+          </div>
+          <label class="lab-search">
+            <span class="lab-search-symbol" aria-hidden="true"></span>
+            <input id="lab-search" type="search" autocomplete="off" placeholder="找一个工具…" aria-label="搜索工具">
+            <span class="lab-search-key" aria-hidden="true">/</span>
+          </label>
+        </div>
+        <div id="lab-result-count" class="lab-result-count" role="status" aria-live="polite"></div>
+        <div class="lab-tool-grid" id="lab-tool-grid"></div>
+        <div class="lab-empty" id="lab-empty" hidden>
+          <h3 data-copy="empty">没有找到这个工具</h3>
+          <p data-copy="emptyHelp">换一个关键词，或看看全部应用。</p>
+          <button type="button" class="lab-button lab-button-primary" id="lab-reset" data-copy="reset">查看全部</button>
+        </div>
+        <p class="lab-access-note"><span aria-hidden="true">↗</span><span data-copy="accessNote">部分国际版应用在中国大陆需代理访问；AI 功能以应用内实际开放状态为准。</span></p>
+      </section>
+      <footer class="lab-footer"><span>TJM <span class="lab-footer-slash">/</span> BUILT WITH CURIOSITY.</span><span data-copy="footer">独立构建 · 持续探索</span></footer>
     </div>
-  </aside>
-  <main class="page-holder">
-    <header class="mobile-header"><button class="navbar-toggler" type="button">菜單 / MENU</button><a href="index.html#all-works">天将明</a></header>
-    <section class="page-hero">
-      <p class="eyebrow" data-i18n data-i18n-hans="Vibe Coding / VIBE CODING" data-i18n-ja="Vibe Coding / VIBE CODING" data-i18n-en="VIBE CODING">Vibe Coding / VIBE CODING</p>
-      <h1 data-i18n data-i18n-hans="用 AI 编程，把设计想法做成可用的产品" data-i18n-ja="AI コーディングで、デザインのアイデアを使えるプロダクトに" data-i18n-en="Turning design ideas into working products with AI coding">用 AI 编程，把设计想法做成可用的产品</h1>
-      <p data-i18n data-i18n-hans="基于 Claude、Codex、Cursor 等主流 AI 编程平台独立搭建，涵盖工作流程优化、在线设计应用与在线版式应用。每个项目均提供在线体验或在线演示，可直接打开试用；部分国际版 AI 功能在中国大陆需借助代理访问。" data-i18n-ja="Claude、Codex、Cursor などの主要な AI コーディングプラットフォームで独自に構築した、ワークフロー最適化、オンラインデザインアプリ、オンラインレイアウトアプリのプロジェクトです。すべてオンライン体験またはオンラインデモを用意しており、そのまま開いて試せます。一部の国際版 AI 機能は、中国本土では VPN が必要です。" data-i18n-en="Independently built with leading AI coding platforms such as Claude, Codex and Cursor, spanning workflow optimization, online design apps and online layout apps. Every project comes with a live experience or online demo you can open right away; some international AI features require a VPN in mainland China.">基于 Claude、Codex、Cursor 等主流 AI 编程平台独立搭建，涵盖工作流程优化、在线设计应用与在线版式应用。每个项目均提供在线体验或在线演示，可直接打开试用；部分国际版 AI 功能在中国大陆需借助代理访问。</p>
-    </section>
-    <section class="works-section"><div class="row g-4" id="workflowsGrid"></div></section>
-    <footer><span>© 天将明個人作品集</span><span>VIBE CODING</span></footer>
+    <noscript><section class="lab-noscript"><h2>在线工具 / Online tools</h2><p>交互展示需要 JavaScript；你仍可直接打开以下应用。</p><ul><li><a href="https://tianming332.github.io/Tian-AI-Video-Production-Agent-V1/" target="_blank" rel="noopener noreferrer">全流程广告视频制作 Agent</a></li><li><a href="https://tianming332.github.io/Tian-Ai-Create-a-booklet-with-one-click--v2/" target="_blank" rel="noopener noreferrer">一键成册（国内版）</a></li><li><a href="https://tjm-book.jiangmingtian332.workers.dev/album/" target="_blank" rel="noopener noreferrer">一键成册（AI版）</a></li><li><a href="https://tjm-style.jiangmingtian332.workers.dev/ai-style/" target="_blank" rel="noopener noreferrer">自研生图Skill体验</a></li><li><a href="https://tianming332.github.io/tjm-design-studio-demo/" target="_blank" rel="noopener noreferrer">TJM 在线图片编辑应用（开源版）</a></li><li><a href="https://tjm-aitool-admin.jiangmingtian332.workers.dev/studio/" target="_blank" rel="noopener noreferrer">TJM 在线图片编辑应用（AI版）</a></li><li><a href="https://tjm-layout.jiangmingtian332.workers.dev/layout/" target="_blank" rel="noopener noreferrer">版式实验室</a></li><li><a href="https://tjm-font.jiangmingtian332.workers.dev/font/" target="_blank" rel="noopener noreferrer">字体工作室</a></li><li><a href="https://tjm-aitool-admin.jiangmingtian332.workers.dev/construct/" target="_blank" rel="noopener noreferrer">规范制图编辑器</a></li><li><a href="https://tjm-aitool-admin.jiangmingtian332.workers.dev/photo-frame/" target="_blank" rel="noopener noreferrer">相纸工作室</a></li><li><a href="https://tjm-aitool-admin.jiangmingtian332.workers.dev/resume/" target="_blank" rel="noopener noreferrer">简历与岗位助手</a></li></ul></section></noscript>
   </main>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="data/site-links.js"></script>
-  <script src="data/works.js"></script>
-  <script src="data/workflows.js?v=20261104-covers"></script>
-  <script src="js/site-render.js?v=20260929-ui8"></script>
-  <script src="js/shared-sidebar.js?v=20261030-vibe7"></script><script src="js/front.js?v=20261030-vibe7"></script>
-  <script src="js/portfolio-motion.js?v=20260929-ui8"></script>
+  <dialog id="lab-preview" class="lab-preview" aria-labelledby="lab-preview-title" aria-describedby="lab-preview-description">
+    <header class="lab-preview-heading">
+      <div id="lab-preview-icon"></div>
+      <div class="lab-preview-heading-copy"><span class="lab-eyebrow" data-copy="realScreen">实际界面 / SCREEN PREVIEW</span><h2 id="lab-preview-title"></h2></div>
+      <button type="button" class="lab-round-button" id="lab-preview-close" aria-label="关闭界面预览">×</button>
+    </header>
+    <div class="lab-preview-picture"><img id="lab-preview-image" alt=""><p id="lab-preview-image-error" hidden data-copy="imageError">图片暂时无法载入，请打开应用查看。</p></div>
+    <div class="lab-preview-bottom">
+      <div><p id="lab-preview-description"></p><span class="lab-prototype-note" id="lab-prototype-note" hidden data-copy="prototype">本页部分图标为功能示意，并非正式品牌 Logo。</span></div>
+      <a id="lab-preview-open" class="lab-button lab-button-primary" target="_blank" rel="noopener noreferrer"><span data-copy="open">打开应用</span><span aria-hidden="true">↗</span></a>
+    </div>
+  </dialog>
+  <script src="data/workflows.js?v=20261104-vibe23"></script>
+  <script src="data/vibe-catalog.js?v=20261104-vibe23"></script>
+  <script src="js/shared-sidebar.js?v=20261030-vibe7"></script>
+  <script src="js/front.js?v=20261030-vibe7"></script>
+  <script src="js/vibe-coding.js?v=20261104-vibe23"></script>
 </body>
 </html>

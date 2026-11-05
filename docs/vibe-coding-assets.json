@@ -1,0 +1,97 @@
+{
+  "version": "v1.0.23",
+  "date": "2026-11-04",
+  "note": "Existing demo assets, no newly designed logos. No reference icon collection was copied.",
+  "files": [
+    {
+      "file": "uploads/vibe-coding/icons/ai.png",
+      "sha256": "58bbdf6f2576f1743c97f7ae0261946eb7e5c471298b5b0cc68257d1c3fe9c72",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/icons/ai.png"
+    },
+    {
+      "file": "uploads/vibe-coding/icons/construct.webp",
+      "sha256": "06e613aee82d40280ea6c9c6fcf737dd159bcf6de03709b08cf7e73599def79b",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/icons/construct.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/icons/favicon.png",
+      "sha256": "455a213e7773c3849ce5b580b98bc7f7ab4ae2bfc70b6145400da6df1e2eb369",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/icons/favicon.png"
+    },
+    {
+      "file": "uploads/vibe-coding/icons/font.webp",
+      "sha256": "b9d498b08392e5194d414125803cd1aa716f6bb42e2acda04e8fe1702b4b227f",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/icons/font.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/icons/layout.webp",
+      "sha256": "5913e79401e6c7c2544ba7af034531648307b64ceb917b70feece9e551db1af3",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/icons/layout.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/icons/photo-frame.webp",
+      "sha256": "293fecb05afdd7ecf157deeecbece71be86803f28e6bffb294e85aa6dab4aad0",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/icons/photo-frame.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/icons/studio.webp",
+      "sha256": "c2b56a70865e3212f5925bd3f61d4f7a14586969e6a1a027615710f943a108e2",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/icons/studio.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/screens/full-process-ad-video-agent.webp",
+      "sha256": "142413f1ff122b1ca61adf513a0db4b0e496a13d2b08184ed2a36ff949ad0e5d",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/screens/full-process-ad-video-agent.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/screens/in-house-image-generation-skill.webp",
+      "sha256": "16743a027ec378f2642ef9a5206f3ffb22bbb2b23d319d1d17f8bef3f99e0c83",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/screens/in-house-image-generation-skill.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/screens/one-click-booklet-ai-international.webp",
+      "sha256": "0c32ae57c3c16dabf5f9b77d540c1d5cde5f640f9b411a3c5fa005bca5d1e63b",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/screens/one-click-booklet-ai-international.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/screens/one-click-booklet.webp",
+      "sha256": "d22557ad20fa033f1c37c207de62239c18cbc4dcce08a59bfbf2407aa24face5",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/screens/one-click-booklet.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/screens/tjm-construction-studio.webp",
+      "sha256": "0962aab98465e34e1ec742a20a2bd91afd41a3dc3c682d32b6f397617916c002",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/screens/tjm-construction-studio.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/screens/tjm-design-studio-ai.webp",
+      "sha256": "e5e69eb4039cad1fc5f547955ac979da12b05f9538758353b6507882bb4325ad",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/screens/tjm-design-studio-ai.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/screens/tjm-design-studio-opensource.webp",
+      "sha256": "f2561bc70b1cba6b348655c8b631c99080ac69ad970648440b01d06d10bbd157",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/screens/tjm-design-studio-opensource.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/screens/tjm-font-studio.webp",
+      "sha256": "27d466867e63c50e0157e1ce54a8f1aa7e06994771aed3c98d9bfa3ab830eb11",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/screens/tjm-font-studio.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/screens/tjm-photo-frame-studio.webp",
+      "sha256": "da65c06e6008be2ad1a7f56c28ae054898eda3f4d5ca8c1a46972073ef559128",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/screens/tjm-photo-frame-studio.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/screens/tjm-resume-studio.webp",
+      "sha256": "a3c0946dec8237838f494134123497411f9670277c97bfb929f04989c894d3fb",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/screens/tjm-resume-studio.webp"
+    },
+    {
+      "file": "uploads/vibe-coding/screens/type-layout-lab.webp",
+      "sha256": "8f52621659e27307a62bfdfabe505ba760b7aa4d870b328252b33c7581034b2b",
+      "source": "实验性-网页/TJM-Vibe-Coding-Lab/assets/screens/type-layout-lab.webp"
+    }
+  ]
+}
